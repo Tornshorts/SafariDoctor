@@ -1,29 +1,30 @@
-import React, { useState } from 'react';
-import { Calendar, Moon, Footprints, ArrowRight, Shield, Sparkles, Filter } from 'lucide-react';
-import { packagesData } from '../data/safariData';
+import { useState, useRef } from 'react';
+import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
+import { tabbedPackagesData } from '../data/safariData';
 
-export default function Packages({ currency, onOpenPackageModal, filterDestination }) {
-  const [activeCategory, setActiveCategory] = useState('All');
+export default function Packages({ currency, onOpenPackageModal, onOpenBookingModal }) {
+  const [activeTab, setActiveTab] = useState('featured');
+  const scrollContainerRef = useRef(null);
 
-  const categories = ['All', 'Best Sellers', 'Wildlife Safaris', 'Safari & Beach', 'Short Safaris'];
+  const tabs = [
+    { key: 'featured', label: 'Featured' },
+    { key: 'bestSelling', label: 'Best Selling' },
+    { key: 'scheduledSafaris', label: 'Scheduled Safaris' }
+  ];
 
-  const filteredPackages = packagesData.filter((pkg) => {
-    // Destination filter if passed
-    if (filterDestination && filterDestination !== 'all') {
-      if (filterDestination === 'maasai-mara' && !pkg.id.includes('mara')) return false;
-      if (filterDestination === 'amboseli' && !pkg.id.includes('amboseli')) return false;
-      if (filterDestination === 'lake-nakuru' && !pkg.id.includes('nakuru')) return false;
-      if (filterDestination === 'diani-beach' && !pkg.id.includes('beach')) return false;
-      if (filterDestination === 'tsavo' && !pkg.id.includes('tsavo')) return false;
+  const currentPackages = tabbedPackagesData[activeTab] || tabbedPackagesData.featured;
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -360, behavior: 'smooth' });
     }
+  };
 
-    if (activeCategory === 'All') return true;
-    if (activeCategory === 'Best Sellers') return pkg.badge === 'BEST SELLER' || pkg.badge === 'POPULAR';
-    if (activeCategory === 'Wildlife Safaris') return pkg.category === 'Wildlife Safaris';
-    if (activeCategory === 'Safari & Beach') return pkg.category === 'Safari & Beach';
-    if (activeCategory === 'Short Safaris') return pkg.days <= 3;
-    return true;
-  });
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+    }
+  };
 
   const formatPrice = (kes, usd) => {
     if (currency === 'USD') {
@@ -33,146 +34,150 @@ export default function Packages({ currency, onOpenPackageModal, filterDestinati
   };
 
   return (
-    <section id="packages" className="py-20 md:py-28 bg-white relative">
+    <section id="packages" className="py-16 md:py-24 bg-[#F8F6F0] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Section Header matching mockup */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-          <div>
-            <span className="text-[#FF6700] text-xs md:text-sm font-black tracking-[0.2em] uppercase block mb-2">
-              POPULAR SAFARI PACKAGES
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#12181F] tracking-tight leading-[1.15] mb-2">
-              Handpicked Safari Packages
-            </h2>
-            <p className="text-gray-500 text-base md:text-lg">
-              Experience the best of Kenya with our expertly designed tours.
-            </p>
+        
+        {/* Tab Headers matching Reference Screenshot 2 */}
+        <div className="flex flex-col items-center justify-center mb-10">
+          <div className="flex items-center justify-center gap-6 sm:gap-10 border-b border-[#D8D2C4] w-full max-w-xl pb-1">
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab.key;
+              return (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`text-lg sm:text-2xl font-bold font-['Outfit'] pb-3 relative transition-all cursor-pointer ${
+                    isActive
+                      ? 'text-[#2D190E] border-b-2 border-[#2D190E]'
+                      : 'text-gray-500 hover:text-[#2D190E]'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
+          <p className="text-sm sm:text-base text-gray-600 mt-3 text-center">
+            Handcrafted African safari expeditions with certified KPSGA naturalist guides & guaranteed window seats.
+          </p>
+        </div>
 
-          <a
-            href="#packages"
-            onClick={(e) => {
-              e.preventDefault();
-              setActiveCategory('All');
-            }}
-            className="inline-flex items-center gap-2 text-sm md:text-base font-bold text-[#FF6700] hover:text-[#E55A00] transition-colors group self-start md:self-end"
+        {/* Carousel Container with Left/Right Arrow Controls */}
+        <div className="relative group">
+          {/* Left Arrow Button */}
+          <button
+            onClick={scrollLeft}
+            aria-label="Previous Packages"
+            className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 hover:bg-white text-gray-800 shadow-xl border border-gray-200 items-center justify-center transition-transform hover:scale-110 active:scale-95 cursor-pointer"
           >
-            <span>View All Packages</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
+            <ChevronLeft className="w-7 h-7" />
+          </button>
 
-        {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all ${
-                activeCategory === cat
-                  ? 'bg-[#FF6700] text-white shadow-md shadow-orange-500/25'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+          {/* Right Arrow Button */}
+          <button
+            onClick={scrollRight}
+            aria-label="Next Packages"
+            className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 hover:bg-white text-gray-800 shadow-xl border border-gray-200 items-center justify-center transition-transform hover:scale-110 active:scale-95 cursor-pointer"
+          >
+            <ChevronRight className="w-7 h-7" />
+          </button>
 
-        {/* Packages Grid - Matching Mockup Card Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredPackages.map((pkg) => (
-            <div
-              key={pkg.id}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col justify-between"
-            >
-              <div>
-                {/* Image & Badges */}
-                <div className="relative h-48 w-full overflow-hidden bg-gray-100">
-                  <img
-                    src={pkg.hiresImage || pkg.image}
-                    alt={pkg.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {/* Badge matching mockup */}
-                  {pkg.badge && pkg.id !== 'mara-3day' && (
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-[#FF6700] text-white text-[10px] font-black tracking-wider uppercase px-2.5 py-1 rounded-md shadow-md">
-                        {pkg.badge}
+          {/* Cards Scroll Container */}
+          <div
+            ref={scrollContainerRef}
+            className="flex items-stretch gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-orange-400"
+            style={{ scrollbarWidth: 'thin' }}
+          >
+            {currentPackages.map((pkg) => (
+              <div
+                key={pkg.id}
+                className="w-[290px] sm:w-[330px] md:w-[350px] lg:w-[295px] xl:w-[310px] shrink-0 snap-start bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#E8E4DA] flex flex-col justify-between group/card"
+              >
+                <div>
+                  {/* Card Image */}
+                  <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-gray-100">
+                    <img
+                      src={pkg.image}
+                      alt={pkg.title}
+                      onError={(e) => {
+                        if (pkg.fallbackImage) {
+                          e.target.src = pkg.fallbackImage;
+                        }
+                      }}
+                      className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700 ease-out"
+                    />
+
+                    {/* Top Badge */}
+                    {pkg.badge && (
+                      <div className="absolute top-3 left-3">
+                        <span className="bg-[#2D190E]/85 backdrop-blur-xs text-white text-xs font-extrabold uppercase px-2.5 py-1 rounded shadow-xs tracking-wider">
+                          {pkg.badge}
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Days/Nights Badge */}
+                    <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-xs text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1.5">
+                      <Calendar className="w-4 h-4 text-[#FF6700]" />
+                      <span>{pkg.days}D / {pkg.nights}N</span>
+                    </div>
+                  </div>
+
+                  {/* Card Content with Exact All-Caps Bold Heading matching Reference Screenshot 2 */}
+                  <div className="p-4 sm:p-5 pb-3">
+                    <h3 className="text-sm sm:text-[15px] font-bold text-[#1C1917] tracking-tight leading-snug line-clamp-3 uppercase font-['Outfit'] min-h-[50px] group-hover/card:text-[#FF6700] transition-colors">
+                      {pkg.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-gray-600 mt-2 line-clamp-2 leading-relaxed">
+                      {pkg.subtitle}
+                    </p>
+
+                    <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-xs sm:text-sm text-gray-600">
+                      <span className="truncate">{pkg.groupType || 'Daily Joining'}</span>
+                      <span className="font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded text-xs">
+                        Available
                       </span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Card Body */}
-                <div className="p-5 pb-3">
-                  <h3 className="text-base md:text-lg font-bold text-gray-900 group-hover:text-[#FF6700] transition-colors line-clamp-1 mb-2">
-                    {pkg.title}
-                  </h3>
-
-                  {/* Metadata: Days, Nights, Wildlife (matching mockup icons) */}
-                  <div className="flex items-center gap-3 text-xs text-gray-500 font-semibold mb-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-gray-400" />
-                      <span>{pkg.days} Days</span>
-                    </div>
-                    <span className="text-gray-300">•</span>
-                    <div className="flex items-center gap-1">
-                      <Moon className="w-3.5 h-3.5 text-gray-400" />
-                      <span>{pkg.nights} Nights</span>
-                    </div>
-                    <span className="text-gray-300">•</span>
-                    <div className="flex items-center gap-1">
-                      <Footprints className="w-3.5 h-3.5 text-[#FF6700]" />
-                      <span>{pkg.type}</span>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Card Footer: Price & View Details CTA matching mockup */}
-              <div className="px-5 pb-5 pt-2 border-t border-gray-50 flex items-center justify-between gap-3">
-                <div>
-                  <span className="block text-[11px] font-medium text-gray-400">
-                    From
-                  </span>
-                  <span className="text-base sm:text-lg font-extrabold text-[#FF6700]">
-                    {formatPrice(pkg.priceKES, pkg.priceUSD)}
-                  </span>
+                {/* Card Footer: Price & Actions */}
+                <div className="p-4 sm:p-5 pt-3 border-t border-gray-100 bg-gray-50/70 flex items-center justify-between gap-2">
+                  <div>
+                    <span className="block text-xs uppercase font-bold text-gray-500">
+                      Starting From
+                    </span>
+                    <span className="text-base sm:text-lg font-extrabold text-[#2D190E]">
+                      {formatPrice(pkg.priceKES, pkg.priceUSD)}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => onOpenPackageModal(pkg)}
+                      className="bg-white hover:bg-[#FF6700] hover:text-white text-gray-800 border border-gray-300 hover:border-[#FF6700] px-3.5 py-1.5 rounded-lg text-sm font-bold transition-all shadow-2xs cursor-pointer"
+                    >
+                      Details
+                    </button>
+                    <button
+                      onClick={() => onOpenBookingModal && onOpenBookingModal(pkg)}
+                      className="bg-[#2D190E] hover:bg-[#FF6700] text-white px-3.5 py-1.5 rounded-lg text-sm font-bold transition-all shadow-xs cursor-pointer"
+                    >
+                      Book
+                    </button>
+                  </div>
                 </div>
-
-                <button
-                  onClick={() => onOpenPackageModal(pkg)}
-                  className="bg-[#FF6700] hover:bg-[#E55A00] text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-orange-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-                >
-                  View Details
-                </button>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Custom Safari Banner */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-[#12181F] text-white flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-[#FFA040] uppercase tracking-wider mb-2">
-              <Sparkles className="w-4 h-4 text-[#FF6700]" />
-              <span>Tailor-Made Private Safari</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-black">Want to customize your safari itinerary?</h3>
-            <p className="text-sm text-gray-300 mt-1 max-w-xl">
-              We design private custom safaris for families, photographers, couples, and private groups. Choose your lodges, budget, and dates.
-            </p>
-          </div>
-          <a
-            href="https://wa.me/254712345678?text=Hello%20SafariDoctor,%20I%20would%20like%20a%20custom%20safari%20itinerary%20quote."
-            target="_blank"
-            rel="noreferrer"
-            className="shrink-0 bg-[#FF6700] hover:bg-[#E55A00] text-white font-bold px-6 py-3.5 rounded-xl text-sm transition-all shadow-lg shadow-orange-500/30 text-center"
-          >
-            Request Custom Safari Quote
-          </a>
+        {/* Mobile Swipe Notice */}
+        <div className="flex md:hidden items-center justify-center gap-2 text-sm text-gray-500 mt-2">
+          <span>← Swipe horizontally to see all packages →</span>
         </div>
+
       </div>
     </section>
   );

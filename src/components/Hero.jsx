@@ -1,74 +1,98 @@
-import React from 'react';
-import { Compass, Play, ShieldCheck, Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
-export default function Hero({ onExploreClick, onWatchVideoClick }) {
+export default function Hero() {
+  const fullText = "SAFARI DOCTOR";
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [cursorVisible, setCursorVisible] = useState(true);
+
+  // Typewriter animation
+  useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setDisplayText(fullText);
+      return;
+    }
+
+    let timeout;
+
+    if (!isDeleting && displayText === fullText) {
+      // Pause for 2 seconds when full text is displayed
+      timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2000);
+    } else if (isDeleting && displayText === '') {
+      // Small pause before typing again
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+      }, 500);
+    } else if (!isDeleting) {
+      // Typing forward (~100ms per character)
+      timeout = setTimeout(() => {
+        setDisplayText(fullText.slice(0, displayText.length + 1));
+      }, 100);
+    } else if (isDeleting) {
+      // Deleting backward (~60ms per character)
+      timeout = setTimeout(() => {
+        setDisplayText(fullText.slice(0, displayText.length - 1));
+      }, 60);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, fullText]);
+
+  // Blinking cursor timer
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setCursorVisible((prev) => !prev);
+    }, 530);
+    return () => clearInterval(cursorInterval);
+  }, []);
+
   return (
-    <section id="home" className="relative min-h-[560px] md:min-h-[640px] flex items-center justify-start overflow-hidden">
-      {/* Hero Background Image with Overlay */}
-      <div className="absolute inset-0 z-0 bg-[#0e141a]">
+    <section
+      id="home"
+      className="relative w-full min-h-[680px] sm:min-h-[750px] md:min-h-[850px] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#1A0E08]"
+    >
+      {/* 2. Hero Background Image using Top-Banner@2x.png */}
+      <div className="absolute inset-0 z-0">
         <img
-          src="/assets/hero_banner.jpg"
-          alt="Kenya Safari Wildlife Landscape with Kilimanjaro and Elephants"
-          className="w-full h-full object-cover object-right md:object-[70%_center] transition-transform duration-1000"
+          src="/assets/Top-Banner@2x.png"
+          alt="Majestic African Elephant in Kenya savannah with Mount Kilimanjaro and acacia trees"
+          onError={(e) => {
+            e.target.src = '/assets/hero_elephants_kili.jpg';
+          }}
+          className="w-full h-full object-cover object-[center_35%] sm:object-center select-none"
         />
-        {/* Clean left mask ensuring zero ghost text and pristine typography */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0e141a] from-0% via-[#0e141a] via-40% md:via-48% to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0e141a]/90 via-transparent to-black/40" />
+        {/* Subtle, cinematic vignette overlay preserving landscape visibility while ensuring crisp contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
+        <div className="absolute inset-0 bg-black/10" />
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-16 pb-28 md:pt-20 md:pb-36">
-        <div className="max-w-2xl">
-          {/* Eyebrow Tag */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[#FFA040] text-xs md:text-sm font-extrabold tracking-widest uppercase mb-4 shadow-sm animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-[#FF6700] animate-ping" />
-            <span>EXPLORE KENYA'S WILDLIFE</span>
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black text-white leading-[1.08] tracking-tight mb-5 drop-shadow-md">
-            Unforgettable <br className="hidden sm:inline" />
-            Safari Experiences
+      {/* 3. Animated Hero Heading & Subtitle (Centered Horizontally & Vertically) */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 w-full text-center flex flex-col items-center justify-center pt-20 sm:pt-24 lg:pt-28 pb-16">
+        
+        {/* Main Heading with Letter-by-Letter Typewriter Animation */}
+        <div className="min-h-[1.25em] flex items-center justify-center">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[88px] font-black uppercase text-white tracking-[0.08em] font-['Outfit'] drop-shadow-[0_4px_16px_rgba(0,0,0,0.65)] select-none">
+            {displayText}
+            <span
+              className={`inline-block ml-1 font-light text-white/95 transition-opacity duration-100 ${
+                cursorVisible ? 'opacity-100' : 'opacity-0'
+              }`}
+              aria-hidden="true"
+            >
+              |
+            </span>
           </h1>
-
-          {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-white/90 font-medium leading-relaxed mb-8 max-w-xl drop-shadow-sm">
-            Discover breathtaking landscapes, incredible wildlife and cultural adventures with <span className="text-white font-bold">SafariDoctor</span>.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-4">
-            <button
-              onClick={onExploreClick}
-              className="bg-[#FF6700] hover:bg-[#E55A00] text-white px-7 py-3.5 rounded-xl font-bold text-base flex items-center gap-2.5 shadow-xl shadow-orange-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <Compass className="w-5 h-5" />
-              <span>Explore Tours</span>
-            </button>
-
-            <button
-              onClick={onWatchVideoClick}
-              className="bg-black/35 hover:bg-black/50 text-white border border-white/40 hover:border-white/70 backdrop-blur-md px-6 py-3.5 rounded-xl font-bold text-base flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5"
-            >
-              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-                <Play className="w-3.5 h-3.5 fill-current text-white translate-x-0.5" />
-              </div>
-              <span>Watch Video</span>
-            </button>
-          </div>
-
-          {/* Trust badges */}
-          <div className="mt-10 flex flex-wrap items-center gap-6 text-white/80 text-xs sm:text-sm font-medium">
-            <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10">
-              <ShieldCheck className="w-4 h-4 text-[#FF6700]" />
-              <span>Licensed Kenya Tour Operator</span>
-            </div>
-            <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10">
-              <Star className="w-4 h-4 text-amber-400 fill-current" />
-              <span>100% Tailor-Made Safaris</span>
-            </div>
-          </div>
         </div>
+
+        {/* Stationary Thin Elegant Subtitle */}
+        <p className="mt-4 sm:mt-5 md:mt-6 text-sm sm:text-lg md:text-2xl lg:text-[28px] font-light tracking-[0.24em] text-white uppercase font-['Outfit'] drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] select-none">
+          CAPTURE NATURE AT IT'S BEST
+        </p>
+
       </div>
     </section>
   );

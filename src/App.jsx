@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SearchFilter from './components/SearchFilter';
-import Destinations from './components/Destinations';
 import Packages from './components/Packages';
-import PackageDetailModal from './components/PackageDetailModal';
-import DestinationModal from './components/DestinationModal';
+import Destinations from './components/Destinations';
+import RealPhotosGallery from './components/RealPhotosGallery';
 import WhyUs from './components/WhyUs';
 import SafariFleet from './components/SafariFleet';
-import TravelInfo from './components/TravelInfo';
+import LatestNews from './components/LatestNews';
 import Reviews from './components/Reviews';
+import TravelInfo from './components/TravelInfo';
 import AboutSection from './components/AboutSection';
 import BookingSection from './components/BookingSection';
-import VideoModal from './components/VideoModal';
 import WhatsAppFloating from './components/WhatsAppFloating';
 import Footer from './components/Footer';
+import PackageDetailModal from './components/PackageDetailModal';
+import DestinationModal from './components/DestinationModal';
+import SearchModal from './components/SearchModal';
 
 export default function App() {
-  const [currency, setCurrency] = useState('KES');
+  const [currency, setCurrency] = useState('USD');
   const [activePackageModal, setActivePackageModal] = useState(null);
   const [activeDestModal, setActiveDestModal] = useState(null);
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [selectedDestinationFilter, setSelectedDestinationFilter] = useState('');
   const [prefilledPackageForBooking, setPrefilledPackageForBooking] = useState(null);
 
@@ -34,18 +36,11 @@ export default function App() {
     }
   };
 
-  const handleExploreClick = () => {
-    const packagesElem = document.getElementById('packages');
-    if (packagesElem) {
-      packagesElem.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleOpenBookingModal = (pkg) => {
     if (pkg) {
       setPrefilledPackageForBooking(pkg);
     }
-    const contactElem = document.getElementById('contact');
+    const contactElem = document.getElementById('booking') || document.getElementById('contact');
     if (contactElem) {
       contactElem.scrollIntoView({ behavior: 'smooth' });
     }
@@ -60,67 +55,72 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] flex flex-col antialiased">
-      {/* Navigation */}
+    <div className="min-h-screen bg-[#EDE9E0] flex flex-col antialiased selection:bg-[#FF6700] selection:text-white">
+      {/* Top Header & Navigation Bar */}
       <Navbar
-        currency={currency}
-        setCurrency={setCurrency}
-        onOpenBookingModal={() => handleOpenBookingModal()}
+        onOpenSearchModal={() => setIsSearchModalOpen(true)}
       />
 
-      {/* Hero Section */}
-      <Hero
-        onExploreClick={handleExploreClick}
-        onWatchVideoClick={() => setIsVideoModalOpen(true)}
-      />
+      {/* Hero Section matching Reference Screenshot 1 */}
+      <Hero />
 
-      {/* Floating Search Filter Bar */}
+      {/* Floating Interactive Search Filter */}
       <SearchFilter
         onSearch={handleSearch}
         selectedDestination={selectedDestinationFilter}
         setSelectedDestination={setSelectedDestinationFilter}
       />
 
-      {/* Top Destinations matching Mockup */}
+      {/* Tabbed Safari Packages Section matching Reference Screenshot 2 */}
+      <Packages
+        currency={currency}
+        onOpenPackageModal={(pkg) => setActivePackageModal(pkg)}
+        onOpenBookingModal={(pkg) => handleOpenBookingModal(pkg)}
+        filterDestination={selectedDestinationFilter}
+      />
+
+      {/* Iconic 6 Destinations Grid matching Reference Screenshot 3 */}
       <Destinations
         onSelectDestination={handleFilterDestinationFromGuide}
         onOpenDestinationModal={(dest) => setActiveDestModal(dest)}
       />
 
-      {/* Popular Safari Packages matching Mockup */}
-      <Packages
-        currency={currency}
-        onOpenPackageModal={(pkg) => setActivePackageModal(pkg)}
-        filterDestination={selectedDestinationFilter}
-      />
+      {/* Real Photos Gallery - USER EXPLICIT REQUIREMENT from assets/Real photos */}
+      <RealPhotosGallery />
 
-      {/* Why Travel With Us (from Mockup) */}
+      {/* Why Travel With Us (Direct local operator, KPSGA guides, 4x4 fleet) */}
       <WhyUs />
 
-      {/* Safari 4x4 Land Cruiser Fleet */}
+      {/* Custom 4x4 Safari Land Cruiser Fleet */}
       <SafariFleet />
 
-      {/* Kenya Travel Info & FAQ */}
-      <TravelInfo />
+      {/* Latest News & Blog matching Reference Screenshot 4 & 5 */}
+      <LatestNews />
 
-      {/* Traveler Reviews & Ratings */}
+      {/* Google Reviews matching Reference Screenshot 5 */}
       <Reviews />
 
-      {/* About SafariDoctor & Chris */}
+      {/* Kenya Safari Travel Info & FAQ */}
+      <TravelInfo />
+
+      {/* About SafariDoctor & Founder Chris ("Black Santa") */}
       <AboutSection />
 
-      {/* Interactive Booking & Custom Safari Builder */}
-      <BookingSection
-        initialPackage={prefilledPackageForBooking}
-      />
+      {/* Interactive Custom Safari Booking Builder */}
+      <div id="booking">
+        <BookingSection
+          initialPackage={prefilledPackageForBooking}
+          currency={currency}
+        />
+      </div>
 
-      {/* Footer */}
+      {/* Comprehensive Footer matching Reference Screenshot 6 */}
       <Footer />
 
-      {/* Floating WhatsApp Action Widget */}
+      {/* Floating "WhatsApp us" Button matching Reference Screenshots 2-6 */}
       <WhatsAppFloating />
 
-      {/* Modals */}
+      {/* Modals & Dialogs */}
       <PackageDetailModal
         pkg={activePackageModal}
         onClose={() => setActivePackageModal(null)}
@@ -135,9 +135,11 @@ export default function App() {
         currency={currency}
       />
 
-      <VideoModal
-        isOpen={isVideoModalOpen}
-        onClose={() => setIsVideoModalOpen(false)}
+      <SearchModal
+        isOpen={isSearchModalOpen}
+        onClose={() => setIsSearchModalOpen(false)}
+        onSelectPackage={(pkg) => setActivePackageModal(pkg)}
+        onSelectDestination={(dest) => setActiveDestModal(dest)}
       />
     </div>
   );

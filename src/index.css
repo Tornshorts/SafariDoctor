@@ -6,6 +6,8 @@
   --color-safari-orange-light: #FFF5EE;
   --color-safari-dark: #12181F;
   --color-safari-gray: #5A6472;
+  --color-safari-beige: #EDE9E0;
+  --color-safari-brown: #3C2313;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-heading: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', serif;
@@ -15,6 +17,9 @@
   body {
     font-family: var(--font-sans);
     color: #1a1e23;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {

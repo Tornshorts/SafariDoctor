@@ -1,96 +1,109 @@
-import React from 'react';
-import { Heart, Compass, Shield, Trees, Award, Users } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-[#FAFAFA] border-t border-gray-100">
+    <section id="about" className="py-16 md:py-24 bg-[#FAFAF8] border-t border-[#EAE6DE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Brand Story and Logo */}
-          <div className="lg:col-span-6 space-y-6">
+          
+          {/* Left Column: Brand Story & Founder Chris */}
+          <div className="lg:col-span-7 space-y-6">
             <div>
-              <span className="text-[#FF6700] text-xs md:text-sm font-black tracking-[0.2em] uppercase block mb-2">
+              <span className="text-[#FF6700] text-sm sm:text-base font-black tracking-[0.2em] uppercase block mb-2 font-['Outfit']">
                 ABOUT SAFARIDOCTOR
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#12181F] tracking-tight leading-tight">
-                "Capture Nature at Its Best"
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#2D190E] tracking-tight leading-tight uppercase font-['Outfit']">
+                Capture Nature At It's Best
               </h2>
+              <div className="w-16 h-1 bg-[#FF6700] mt-3 rounded-full" />
             </div>
 
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed font-medium">
-              Founded by <strong className="text-gray-900">Chris</strong>, SafariDoctor was created with a singular mission: to provide authentic, deeply immersive wildlife safaris in Kenya that respect nature and empower local communities.
+            <p className="text-gray-800 text-base sm:text-lg leading-relaxed font-semibold">
+              Founded by safari naturalist <strong className="text-[#2D190E]">Chris</strong> (fondly nicknamed <span className="text-[#FF6700]">"Black Santa"</span> by our happy travelers on TripAdvisor), SafariDoctor is a registered Kenyan tour operator dedicated to providing authentic, personalized adventures across Kenya and East Africa.
             </p>
 
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              We understand that a safari to Africa is often a once-in-a-lifetime journey. That is why every SafariDoctor itinerary is handcrafted with clinical attention to detail—from hand-selecting the finest lodge locations for sunrise game views, to ensuring our custom 4x4 Land Cruisers provide unparalleled photographic sightlines.
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+              We consider it our responsibility to provide you with the means to have not only a wonderful holiday here in Kenya, but also an opportunity to experience our world-famous national parks, game reserves, mountain hiking, white sandy beaches, and spectacular natural scenery.
             </p>
 
-            {/* Core Values */}
+            {/* Core Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="flex items-start gap-3 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
-                <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-[#FF6700] shrink-0">
-                  <Heart className="w-5 h-5" />
+              <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-[#E8E4DA] shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-orange-100/80 flex items-center justify-center text-[#FF6700] shrink-0 font-bold">
+                  ✓
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-sm">Conservation First</h4>
-                  <p className="text-xs text-gray-500 mt-1">Strict adherence to wildlife park ethics and low-impact eco tourism.</p>
+                  <h4 className="font-bold text-[#2D190E] text-base">Direct Local Operator</h4>
+                  <p className="text-sm text-gray-600 mt-0.5">Book directly with Chris and our Nairobi team with zero middleman markups.</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
-                <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-[#FF6700] shrink-0">
-                  <Users className="w-5 h-5" />
+              <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-[#E8E4DA] shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-orange-100/80 flex items-center justify-center text-[#FF6700] shrink-0 font-bold">
+                  🛡️
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-sm">Local Empowerment</h4>
-                  <p className="text-xs text-gray-500 mt-1">Fair wages for our Kenyan guides and direct support to Maasai education funds.</p>
+                  <h4 className="font-bold text-[#2D190E] text-base">TOSK Certified #0236</h4>
+                  <p className="text-sm text-gray-600 mt-0.5">Member of Tour Operators Society of Kenya with full licensing and bonded safety.</p>
                 </div>
               </div>
+            </div>
+
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-sm font-bold text-gray-700">
+              <span className="flex items-center gap-2 bg-white px-3.5 py-2 rounded-lg border border-gray-200 shadow-2xs">
+                <CheckCircle className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
+                Guaranteed Window Seats
+              </span>
+              <span className="flex items-center gap-2 bg-white px-3.5 py-2 rounded-lg border border-gray-200 shadow-2xs">
+                <CheckCircle className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
+                Pop-up Roof 360° Photography
+              </span>
+              <span className="flex items-center gap-2 bg-white px-3.5 py-2 rounded-lg border border-gray-200 shadow-2xs">
+                <CheckCircle className="w-4.5 h-4.5 text-emerald-600 shrink-0" />
+                English & German Speaking Guides
+              </span>
             </div>
           </div>
 
-          {/* Right Column: Visual Showcase with Logo */}
-          <div className="lg:col-span-6 relative">
-            <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 text-center relative overflow-hidden group">
-              {/* Background watermark */}
-              <div className="absolute -top-10 -right-10 w-48 h-48 bg-orange-100/50 rounded-full blur-3xl pointer-events-none" />
+          {/* Right Column: Visual Showcase with Real Photo of Chris & Travelers */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative bg-white rounded-2xl p-4 sm:p-5 shadow-xl border border-[#E8E4DA]">
+              {/* Photo with Chris in tactical gear */}
+              <div className="relative h-72 sm:h-80 rounded-xl overflow-hidden mb-4">
+                <img
+                  src="/assets/real_chris_tactical_group.jpg"
+                  alt="Chris SafariDoctor with Happy Travelers in Masai Mara"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-xs text-white p-3 rounded-lg">
+                  <span className="text-xs font-extrabold uppercase text-[#FFA040] block">
+                    FOUNDER & LEAD NATURALIST
+                  </span>
+                  <span className="text-sm font-bold block mt-0.5">
+                    Chris ("Black Santa") with guests on Masai Mara Game Drive
+                  </span>
+                </div>
+              </div>
 
-              {/* Logo Presentation */}
-              <div className="flex justify-center mb-6">
+              {/* Logo & Certification Banner */}
+              <div className="flex items-center justify-between pt-2 px-1">
                 <img
                   src="/assets/logo_transparent.png"
-                  alt="SafariDoctor - Capture Nature at Its Best"
-                  className="max-h-56 sm:max-h-64 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                  alt="SafariDoctor"
+                  className="h-10 w-auto object-contain"
                 />
-              </div>
-
-              <div className="max-w-md mx-auto space-y-2">
-                <h3 className="text-xl font-black text-gray-900">
-                  Your Trusted Kenyan Safari Companion
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-500">
-                  Registered Kenya Tour Operator. Certified by Kenya Tourism Board (KTB) and Kenya Association of Tour Operators (KATO).
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-around text-center">
-                <div>
-                  <span className="block text-2xl font-black text-[#FF6700]">100%</span>
-                  <span className="text-[11px] font-bold text-gray-400 uppercase">Kenyan Owned</span>
-                </div>
-                <div className="w-px h-8 bg-gray-200" />
-                <div>
-                  <span className="block text-2xl font-black text-[#FF6700]">Silver</span>
-                  <span className="text-[11px] font-bold text-gray-400 uppercase">KPSGA Guides</span>
-                </div>
-                <div className="w-px h-8 bg-gray-200" />
-                <div>
-                  <span className="block text-2xl font-black text-[#FF6700]">24/7</span>
-                  <span className="text-[11px] font-bold text-gray-400 uppercase">Concierge</span>
+                <div className="text-right">
+                  <span className="text-sm font-black text-[#2D190E] block font-['Outfit']">
+                    100% LOCALLY OWNED
+                  </span>
+                  <span className="text-xs text-gray-500 font-semibold">
+                    Headquartered in Nairobi, Kenya
+                  </span>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

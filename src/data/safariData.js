@@ -1,10 +1,11 @@
 export const destinationsData = [
   {
     id: 'maasai-mara',
-    name: 'Maasai Mara',
+    name: 'MAASAI MARA',
+    displayName: 'Maasai Mara',
     tagline: 'The ultimate wildlife experience',
-    image: '/assets/dest_mara.jpg',
-    hiresImage: '/assets/dest_mara.jpg',
+    image: '/assets/reference_crops/ref_dest_mara.jpg',
+    fallbackImage: '/assets/dest_mara.jpg',
     badge: 'World Wonder',
     description: 'Renowned globally for the annual Great Migration of over two million wildebeest and zebras, Maasai Mara is Kenya\'s premier wildlife reserve, boasting exceptional Big Five viewing all year round.',
     bestTime: 'July to October (Migration), Year-round for Big Five',
@@ -16,10 +17,11 @@ export const destinationsData = [
   },
   {
     id: 'amboseli',
-    name: 'Amboseli',
+    name: 'AMBOSELI',
+    displayName: 'Amboseli National Park',
     tagline: 'Elephants & Kilimanjaro views',
-    image: '/assets/dest_amboseli.jpg',
-    hiresImage: '/assets/dest_amboseli.jpg',
+    image: '/assets/reference_crops/ref_dest_amboseli.jpg',
+    fallbackImage: '/assets/dest_amboseli.jpg',
     badge: 'Iconic Scenery',
     description: 'Famed for its free-ranging herds of majestic African elephants and unmatched panoramic vistas of snow-capped Mount Kilimanjaro rising across the border.',
     bestTime: 'June to October & January to February',
@@ -30,13 +32,46 @@ export const destinationsData = [
     startingPriceUSD: 400
   },
   {
+    id: 'tsavo-east',
+    name: 'TSAVO EAST',
+    displayName: 'Tsavo East & West',
+    tagline: 'Red elephants & boundless wilderness',
+    image: '/assets/reference_crops/ref_dest_tsavo.jpg',
+    fallbackImage: '/assets/tsavo.jpg',
+    badge: 'Largest Park',
+    description: 'Kenya\'s largest protected wilderness, celebrated for red-dust elephants, ancient volcanic lava flows at Shetani, Lugard Falls, and open safari van game tracking.',
+    bestTime: 'June to October & January to March',
+    keyWildlife: ['Red Dust Elephants', 'Lions', 'Buffalo', 'Hippos', 'Lesser Kudu'],
+    highlights: ['Mzima Springs Underwater Chamber', 'Mudanda Rock & Lugard Falls', 'Shetani Lava Flow', 'Man-Eaters History'],
+    recommendedDays: '2 - 3 Days',
+    startingPriceKES: 28000,
+    startingPriceUSD: 220
+  },
+  {
+    id: 'serengeti',
+    name: 'SERENGETI',
+    displayName: 'Serengeti & Mara Ecosystem',
+    tagline: 'Endless plains & migration corridors',
+    image: '/assets/reference_crops/ref_dest_serengeti.jpg',
+    fallbackImage: '/assets/hero_savanna.jpg',
+    badge: 'Safari Icon',
+    description: 'The legendary Serengeti expanse stretching beyond the border, offering dramatic big cat hunting action, golden horizons, and seasonal migration tracking.',
+    bestTime: 'Year-round, Peak June to October',
+    keyWildlife: ['Lions', 'Leopards', 'Cheetahs', 'Elephants', 'Giraffes', 'Hyenas'],
+    highlights: ['Endless Savannah Horizons', 'Predator Tracking', 'Mobile Tented Camps', 'Seronera Valley Wildlife'],
+    recommendedDays: '4 - 5 Days',
+    startingPriceKES: 98000,
+    startingPriceUSD: 760
+  },
+  {
     id: 'lake-nakuru',
-    name: 'Lake Nakuru',
+    name: 'LAKE NAKURU',
+    displayName: 'Lake Nakuru National Park',
     tagline: 'Rhinos, flamingos & birdlife',
-    image: '/assets/dest_nakuru.jpg',
-    hiresImage: '/assets/dest_nakuru.jpg',
-    badge: 'UNESCO Heritage',
-    description: 'Nestled in the Great Rift Valley, Lake Nakuru National Park is a sanctuary for endangered white and black rhinos, Rothschild\'s giraffes, and millions of fuchsia flamingos.',
+    image: '/assets/reference_crops/ref_dest_nakuru.jpg',
+    fallbackImage: '/assets/dest_nakuru.jpg',
+    badge: 'UNESCO Sanctuary',
+    description: 'Nestled in the Great Rift Valley, Lake Nakuru is a world-famous sanctuary for endangered white and black rhinos, Rothschild\'s giraffes, and vibrant bird populations.',
     bestTime: 'Year-round, especially dry seasons for birding',
     keyWildlife: ['Black & White Rhinos', 'Lesser Flamingos', 'Rothschild Giraffes', 'Tree-climbing Lions', 'Pelicans'],
     highlights: ['Rhino Sanctuary Tracking', 'Baboon Cliff Viewpoint', 'Makalia Falls', 'Rift Valley Escarpment'],
@@ -45,351 +80,448 @@ export const destinationsData = [
     startingPriceUSD: 295
   },
   {
-    id: 'diani-beach',
-    name: 'Diani Beach',
-    tagline: 'Pristine beaches & water activities',
-    image: '/assets/dest_diani.jpg',
-    hiresImage: '/assets/dest_diani.jpg',
-    badge: 'Best African Beach',
-    description: 'Crowned Africa\'s leading beach destination multiple times, Diani features powdery white sands, warm turquoise Indian Ocean waters, swaying coconut palms, and vibrant coral reefs.',
-    bestTime: 'October to April (Calm waters & sunny days)',
-    keyWildlife: ['Whale Sharks', 'Dolphins', 'Sea Turtles', 'Colobus Monkeys'],
-    highlights: ['Kisite-Mpunguti Dhow Cruise', 'Kite Surfing & Scuba Diving', 'Shimba Hills Day Safari', 'Ali Barbour\'s Cave Dining'],
-    recommendedDays: '3 - 5 Days',
-    startingPriceKES: 85000,
-    startingPriceUSD: 660
-  },
-  {
-    id: 'samburu',
-    name: 'Samburu National Reserve',
-    tagline: 'Rugged northern wilderness & rare species',
-    image: '/assets/samburu.jpg',
-    hiresImage: '/assets/samburu.jpg',
-    badge: 'Special Five',
-    description: 'A dramatic semi-arid frontier bisected by the Ewaso Nyiro River, home to unique wildlife species found nowhere else in southern Kenya.',
-    bestTime: 'June to October & December to March',
-    keyWildlife: ['Grevy Zebra', 'Reticulated Giraffe', 'Beisa Oryx', 'Gerenuk', 'Somali Ostrich', 'Leopards'],
-    highlights: ['Northern Special Five', 'Samburu Cultural Tours', 'Riverine Birdwatching', 'Untamed Landscapes'],
-    recommendedDays: '3 - 4 Days',
-    startingPriceKES: 58000,
-    startingPriceUSD: 450
-  },
-  {
-    id: 'tsavo',
-    name: 'Tsavo National Parks',
-    tagline: 'Red elephants & boundless wilderness',
-    image: '/assets/tsavo.jpg',
-    hiresImage: '/assets/tsavo.jpg',
-    badge: 'Largest Park',
-    description: 'Split into Tsavo East and Tsavo West, this vast wilderness is celebrated for the iconic red-dust elephants, ancient lava flows at Shetani, and underwater hippo viewing at Mzima Springs.',
-    bestTime: 'June to October & January to March',
-    keyWildlife: ['Red Dust Elephants', 'Lions', 'Buffalo', 'Hippos', 'Lesser Kudu'],
-    highlights: ['Mzima Springs Underwater Chamber', 'Mudanda Rock & Lugard Falls', 'Shetani Lava Flow', 'Man-Eaters History'],
-    recommendedDays: '2 - 3 Days',
-    startingPriceKES: 28000,
-    startingPriceUSD: 220
+    id: 'lake-naivasha',
+    name: 'LAKE NAIVASHA',
+    displayName: 'Lake Naivasha & Crescent Island',
+    tagline: 'Freshwater lake boat safaris & walking among wildlife',
+    image: '/assets/reference_crops/ref_dest_naivasha.jpg',
+    fallbackImage: '/assets/nakuru_flamingos.jpg',
+    badge: 'Rift Valley Gem',
+    description: 'A serene freshwater lake ringed by yellow-fever acacia trees, home to thousands of pink flamingos, pelicans, hippo pods, and the walking safari paradise of Crescent Island.',
+    bestTime: 'Year-round (superb boating & walking conditions)',
+    keyWildlife: ['Hippos', 'Fish Eagles', 'Giraffes', 'Zebras', 'Flamingos', 'Waterbucks'],
+    highlights: ['Scenic Boat Safari to Crescent Island', 'Walking with Giraffes on Foot', 'Hell\'s Gate Gorge Biking', 'Geothermal Spa Relax'],
+    recommendedDays: '1 - 2 Days',
+    startingPriceKES: 24000,
+    startingPriceUSD: 190
   }
 ];
 
+export const tabbedPackagesData = {
+  featured: [
+    {
+      id: 'mara-nakuru-naivasha-amboseli-7d',
+      title: '7 DAYS, 6 NIGHTS SAFARI TO MASAI MARA, LAKE NAKURU, LAKE NAIVASHA AND AMBOSELI SAFARI.',
+      shortTitle: '7 Days Mara, Nakuru, Naivasha & Amboseli',
+      subtitle: 'The comprehensive Kenyan circuit: Big Five, bird sanctuary, boat safari and Kilimanjaro backdrop.',
+      badge: 'FEATURED',
+      category: 'Featured Safari',
+      days: 7,
+      nights: 6,
+      type: 'Wildlife & Scenic',
+      image: '/assets/reference_crops/ref_pkg_kili.jpg',
+      fallbackImage: '/assets/hero_elephants_kili.jpg',
+      priceKES: 135000,
+      priceUSD: 1050,
+      groupType: 'Small Group or Private 4x4 Cruiser',
+      pickup: 'Nairobi Hotel / JKIA Airport',
+      dropoff: 'Nairobi Hotel / JKIA Airport',
+      itinerary: [
+        { day: 'Day 1', title: 'Nairobi to Maasai Mara National Reserve', desc: 'Depart Nairobi early through the Great Rift Valley escarpment. Arrive in Maasai Mara in time for lunch and camp check-in. Afternoon game drive tracking lions and cheetahs.' },
+        { day: 'Day 2', title: 'Full Day Maasai Mara & Mara River', desc: 'Spend the entire day exploring the Mara plains. Witness migration herds, visit the hippo and crocodile-packed Mara River, and enjoy a wild picnic lunch under an acacia.' },
+        { day: 'Day 3', title: 'Maasai Mara to Lake Nakuru National Park', desc: 'Morning drive to Lake Nakuru in the Rift Valley. Afternoon game drive tracking black and white rhinos, Rothschild giraffes, and flamingo flocks along the shores.' },
+        { day: 'Day 4', title: 'Lake Nakuru to Lake Naivasha Boat Safari', desc: 'Short scenic drive to Lake Naivasha. Afternoon motorized boat safari gliding past hippos to Crescent Island Sanctuary for a guided walking safari with giraffes and zebras.' },
+        { day: 'Day 5', title: 'Lake Naivasha to Amboseli National Park', desc: 'Journey southeast past Nairobi to the base of Mount Kilimanjaro. Arrive at Amboseli with evening game drive as elephants graze against the mountain silhouette.' },
+        { day: 'Day 6', title: 'Full Day Amboseli Wildlife & Observation Hill', desc: 'Morning and afternoon game drives with clear mountain views. Climb Observation Hill overlooking the Enkongo Narok swamps crowded with bathing elephants and birdlife.' },
+        { day: 'Day 7', title: 'Sunrise Game Drive & Return to Nairobi', desc: 'Early morning game drive followed by hot breakfast. Check out and journey back to Nairobi with drop-off at your hotel or international airport.' }
+      ],
+      inclusions: [
+        'Transport in customized 4x4 Safari Land Cruiser with pop-up photography roof',
+        '6 Nights accommodation in handpicked safari lodges and tented camps',
+        'All meals on safari (Breakfast, Lunch, Dinner)',
+        'Services of certified KPSGA driver-guide (Chris & team)',
+        'Lake Naivasha boat safari & Crescent Island walking guide',
+        'Unlimited game drives as per itinerary',
+        'Complimentary bottled drinking water throughout'
+      ],
+      exclusions: [
+        'National Park entrance fees',
+        'Optional Maasai cultural village visit ($25-$30)',
+        'Optional Sunrise Hot Air Balloon Safari ($450)',
+        'Tips and driver gratuities',
+        'Personal travel insurance'
+      ]
+    },
+    {
+      id: 'mara-nakuru-4d',
+      title: '4 DAYS, 3 NIGHTS MASAI MARA AND LAKE NAKURU NATIONAL PARK GROUP JOINING BUDGET SAFARI',
+      shortTitle: '4 Days Maasai Mara & Lake Nakuru Budget Safari',
+      subtitle: 'Our top affordable safari: witness the Big Five in Mara and rhino paradise in Lake Nakuru.',
+      badge: 'TOP VALUE',
+      category: 'Budget Group Joining',
+      days: 4,
+      nights: 3,
+      type: 'Wildlife',
+      image: '/assets/reference_crops/ref_pkg_cruiser_open.jpg',
+      fallbackImage: '/assets/safari_jeep.jpg',
+      priceKES: 58000,
+      priceUSD: 450,
+      groupType: 'Daily Group Joining / Budget 4x4',
+      pickup: 'Nairobi Central / Westlands / JKIA',
+      dropoff: 'Nairobi Central / Westlands / JKIA',
+      itinerary: [
+        { day: 'Day 1', title: 'Nairobi to Maasai Mara', desc: 'Early pickup in Nairobi and drive through the Great Rift Valley. Check into tented camp, lunch, followed by late afternoon game drive.' },
+        { day: 'Day 2', title: 'Full Day Maasai Mara Game Tracking', desc: 'Full day exploring the savannah with packed picnic lunch. Seek out lion prides, leopards, cheetahs, and herds of wildebeest and zebra.' },
+        { day: 'Day 3', title: 'Maasai Mara to Lake Nakuru', desc: 'Morning departure to Lake Nakuru National Park. Afternoon game drive in the rhino sanctuary and bird paradise.' },
+        { day: 'Day 4', title: 'Morning Drive & Return to Nairobi', desc: 'Breakfast and morning game viewing before heading back to Nairobi, arriving late afternoon.' }
+      ],
+      inclusions: [
+        'Transport in safari van / 4x4 cruiser with pop-up roof',
+        '3 Nights accommodation in budget tented camp / lodge',
+        'All meals on safari',
+        'Professional English-speaking driver-guide',
+        'Drinking water on game drives'
+      ],
+      exclusions: [
+        'Park entry fees',
+        'Maasai village tour',
+        'Personal expenses and tips'
+      ]
+    },
+    {
+      id: 'mara-nakuru-amboseli-6d',
+      title: '6 DAYS 5 NIGHTS MAASAI MARA, LAKE NAKURU AND AMBOSELI GROUP JOINING SAFARI',
+      shortTitle: '6 Days Mara, Nakuru & Amboseli Safari',
+      subtitle: 'The golden triangle of Kenya: predator savannahs, Great Rift Valley lakes, and elephant herds of Kilimanjaro.',
+      badge: 'BEST SELLER',
+      category: 'Group Joining & Private',
+      days: 6,
+      nights: 5,
+      type: 'Wildlife & Big Five',
+      image: '/assets/reference_crops/ref_pkg_cheetah.jpg',
+      fallbackImage: '/assets/mara_lion.jpg',
+      priceKES: 110000,
+      priceUSD: 850,
+      groupType: 'Small Group Joining / Private',
+      pickup: 'Nairobi Hotel / Airport',
+      dropoff: 'Nairobi Hotel / Airport',
+      itinerary: [
+        { day: 'Day 1', title: 'Nairobi to Maasai Mara Reserve', desc: 'Scenic journey to Maasai Mara, lunch at camp, and first exciting afternoon game drive.' },
+        { day: 'Day 2', title: 'Full Day in Maasai Mara', desc: 'All day game viewing in search of the Big Five, with bush picnic lunch in the heart of the reserve.' },
+        { day: 'Day 3', title: 'Maasai Mara to Lake Nakuru', desc: 'Transfer to Lake Nakuru, check-in, lunch, and game drive spotting both black and white rhinos.' },
+        { day: 'Day 4', title: 'Lake Nakuru to Amboseli National Park', desc: 'Drive across the plains to Amboseli with Mount Kilimanjaro in view. Evening game drive.' },
+        { day: 'Day 5', title: 'Full Day Amboseli Wildlife Spectacle', desc: 'Full day tracking big tuskers and predators across the swamps, Observation Hill picnic.' },
+        { day: 'Day 6', title: 'Amboseli to Nairobi', desc: 'Final morning game drive, breakfast, and smooth return drive to Nairobi for flight connections.' }
+      ],
+      inclusions: [
+        '4x4 safari cruiser / minivan with pop-up photography roof',
+        '5 Nights comfortable lodge/camp accommodation',
+        'Full board meals',
+        'Experienced naturalist driver-guide',
+        'All game drives'
+      ],
+      exclusions: ['Park entry fees', 'Drinks & tips', 'Optional village visit']
+    },
+    {
+      id: 'mara-nakuru-budget-track-4d',
+      title: '4 DAYS, 3 NIGHTS MASAI MARA AND LAKE NAKURU NATIONAL PARK GROUP JOINING BUDGET SAFARI (EXPEDITION)',
+      shortTitle: '4 Days Mara & Nakuru Expedition',
+      subtitle: 'Experience authentic African dirt-track expeditions with guaranteed window seats and seasoned guides.',
+      badge: 'POPULAR',
+      category: 'Expedition',
+      days: 4,
+      nights: 3,
+      type: 'Adventure',
+      image: '/assets/reference_crops/ref_pkg_cruiser_track.jpg',
+      fallbackImage: '/assets/safari_camp.jpg',
+      priceKES: 58000,
+      priceUSD: 450,
+      groupType: 'Daily Departures',
+      pickup: 'Nairobi',
+      dropoff: 'Nairobi',
+      itinerary: [
+        { day: 'Day 1', title: 'Nairobi to Mara Expedition', desc: 'Depart Nairobi early and travel through Narok town into the Mara for afternoon wildlife search.' },
+        { day: 'Day 2', title: 'The Great Mara Safari', desc: 'Complete day tracking predators, large herds, and viewing the Mara River wildlife.' },
+        { day: 'Day 3', title: 'Mara to Lake Nakuru Sanctuary', desc: 'Drive to Nakuru and explore the UNESCO World Heritage bird and rhino park.' },
+        { day: 'Day 4', title: 'Return Journey to Nairobi', desc: 'Morning game drive and return transfer to Nairobi.' }
+      ],
+      inclusions: ['Transport with pop-up roof', '3 Nights accommodation', 'All meals', 'Guide & water'],
+      exclusions: ['Park fees', 'Tips']
+    }
+  ],
+  bestSelling: [
+    {
+      id: 'mara-3day-bestseller',
+      title: '3-DAY MAASAI MARA NATIONAL RESERVE MIGRATION & BIG FIVE SAFARI',
+      shortTitle: '3-Day Maasai Mara Classic',
+      subtitle: 'The quintessential African safari: lions, leopards, cheetahs, and vast savannah herds.',
+      badge: 'TOP SELLER',
+      category: 'Classic Safari',
+      days: 3,
+      nights: 2,
+      type: 'Big Five Wildlife',
+      image: '/assets/reference_crops/ref_dest_mara.jpg',
+      fallbackImage: '/assets/pkg_mara.jpg',
+      priceKES: 45000,
+      priceUSD: 350,
+      groupType: 'Daily Group Joining or Private 4x4',
+      pickup: 'Nairobi Hotel / JKIA Airport',
+      dropoff: 'Nairobi Hotel / JKIA Airport',
+      itinerary: [
+        { day: 'Day 1', title: 'Nairobi to Maasai Mara', desc: 'Scenic morning drive down the Great Rift Valley. Arrive at camp for lunch. Afternoon game drive searching for the Big Five.' },
+        { day: 'Day 2', title: 'Full Day in Maasai Mara Reserve', desc: 'Full-day game drive with bush picnic lunch by the Mara River. High chance of big cat encounters.' },
+        { day: 'Day 3', title: 'Sunrise Game Drive & Return to Nairobi', desc: 'Early morning game drive, breakfast, and return journey to Nairobi arriving late afternoon.' }
+      ],
+      inclusions: ['4x4 Safari Land Cruiser / Minivan with pop-up roof', '2 Nights tented camp full board', 'All meals', 'Professional guide', 'Bottled water'],
+      exclusions: ['Park entry fees', 'Tips and personal items']
+    },
+    {
+      id: 'amboseli-4day-bestseller',
+      title: '4-DAY AMBOSELI & KILIMANJARO ELEPHANT SPECTACULAR',
+      shortTitle: '4-Day Amboseli Safari',
+      subtitle: 'Up-close giant elephant herds framed by the majestic snow-capped peak of Mount Kilimanjaro.',
+      badge: 'ICONIC',
+      category: 'Photography Safari',
+      days: 4,
+      nights: 3,
+      type: 'Wildlife & Landscapes',
+      image: '/assets/reference_crops/ref_pkg_kili.jpg',
+      fallbackImage: '/assets/pkg_amboseli.jpg',
+      priceKES: 52000,
+      priceUSD: 400,
+      groupType: 'Private 4x4 or Small Group',
+      pickup: 'Nairobi or Mombasa',
+      dropoff: 'Nairobi or Mombasa',
+      itinerary: [
+        { day: 'Day 1', title: 'Nairobi to Amboseli', desc: 'Drive through Athi Plains to Amboseli. Afternoon game drive under Kilimanjaro.' },
+        { day: 'Day 2', title: 'Full Day Exploring Amboseli', desc: 'Track elephant herds, lions, cheetahs. Observation Hill panoramic lunch.' },
+        { day: 'Day 3', title: 'Morning & Afternoon Game Drives', desc: 'Dawn photography session when skies are clearest. Cultural village experience.' },
+        { day: 'Day 4', title: 'Final Drive & Return', desc: 'Morning game drive, breakfast, and return transfer to Nairobi or Diani Beach.' }
+      ],
+      inclusions: ['Transport in custom 4x4', '3 Nights lodge accommodation', 'All meals', 'Certified guide', 'Bottled water'],
+      exclusions: ['Amboseli park fees', 'Gratuities']
+    },
+    {
+      id: 'safari-beach-5day-bestseller',
+      title: '5-DAY WILDLIFE SAFARI & TROPICAL DIANI BEACH COMBO',
+      shortTitle: '5-Day Safari & Beach Combo',
+      subtitle: 'The best of Kenya: thrill of Tsavo red elephants followed by pure relaxation on Diani Beach.',
+      badge: 'TOP COMBO',
+      category: 'Safari & Beach',
+      days: 5,
+      nights: 4,
+      type: 'Wildlife & Beach',
+      image: '/assets/reference_crops/ref_dest_tsavo.jpg',
+      fallbackImage: '/assets/pkg_beach.jpg',
+      priceKES: 85000,
+      priceUSD: 660,
+      groupType: 'Private Experience',
+      pickup: 'Nairobi or Mombasa',
+      dropoff: 'Diani Beach / Ukunda Airport',
+      itinerary: [
+        { day: 'Day 1', title: 'Nairobi to Tsavo West', desc: 'Journey south, Mzima Springs hippo pools, afternoon game drive.' },
+        { day: 'Day 2', title: 'Tsavo West to Tsavo East', desc: 'Morning drive to Tsavo East, home to famous red dust elephants.' },
+        { day: 'Day 3', title: 'Tsavo East to Diani Beach Resort', desc: 'Morning drive, transfer to Diani white sandy beaches and turquoise waters.' },
+        { day: 'Day 4', title: 'Diani Beach Relaxation & Ocean Dhow Cruise', desc: 'Relaxation and optional dhow trip to Kisite Marine Park for dolphins and snorkeling.' },
+        { day: 'Day 5', title: 'Leisure & Departure', desc: 'Morning ocean stroll and transfer to Ukunda airstrip or Mombasa SGR station.' }
+      ],
+      inclusions: ['3 Days 4x4 safari cruiser + 2 Nights beach resort', 'All meals on safari, half board at beach', 'Park transfers', 'Guide'],
+      exclusions: ['Park entry fees', 'Optional water sports']
+    }
+  ],
+  scheduledSafaris: [
+    {
+      id: 'scheduled-mara-3d',
+      title: 'WEEKLY SCHEDULED JOINING: 3-DAY MAASAI MARA SAFARI (DEPARTS MON & FRI)',
+      shortTitle: 'Scheduled 3-Day Maasai Mara (Mon & Fri)',
+      subtitle: 'Guaranteed group departures every Monday and Friday. Perfect for solo travelers and couples.',
+      badge: 'FIXED DEPARTURE',
+      category: 'Scheduled Group',
+      days: 3,
+      nights: 2,
+      type: 'Group Joining',
+      image: '/assets/reference_crops/ref_pkg_cruiser_open.jpg',
+      fallbackImage: '/assets/safari_jeep.jpg',
+      priceKES: 42000,
+      priceUSD: 330,
+      groupType: 'Guaranteed Weekly Departure (Mon & Fri)',
+      pickup: 'Nairobi Central Pickups',
+      dropoff: 'Nairobi Central Pickups',
+      itinerary: [
+        { day: 'Day 1', title: 'Monday / Friday: Nairobi to Mara', desc: 'Depart 7:30 AM, arrive at camp for hot lunch, 3:30 PM sunset game drive.' },
+        { day: 'Day 2', title: 'Full Day Safari Tracking', desc: 'Full day game tracking across the vast reserve, packed picnic lunch in wilderness.' },
+        { day: 'Day 3', title: 'Morning Drive & Return', desc: '6:30 AM sunrise game drive, breakfast, and return to Nairobi by 4:00 PM.' }
+      ],
+      inclusions: ['Pop-up roof safari vehicle', '2 Nights tented camp', 'Full board meals', 'Guide & water'],
+      exclusions: ['Park admission fees', 'Tips']
+    },
+    {
+      id: 'scheduled-mara-nakuru-4d',
+      title: 'WEEKLY SCHEDULED JOINING: 4-DAY MARA & LAKE NAKURU (DEPARTS WED & SAT)',
+      shortTitle: 'Scheduled 4-Day Mara & Nakuru (Wed & Sat)',
+      subtitle: 'Guaranteed departures every Wednesday and Saturday covering Masai Mara and Lake Nakuru rhino park.',
+      badge: 'FIXED DEPARTURE',
+      category: 'Scheduled Group',
+      days: 4,
+      nights: 3,
+      type: 'Group Joining',
+      image: '/assets/reference_crops/ref_pkg_cheetah.jpg',
+      fallbackImage: '/assets/dest_nakuru.jpg',
+      priceKES: 55000,
+      priceUSD: 430,
+      groupType: 'Guaranteed Departures (Wed & Sat)',
+      pickup: 'Nairobi Pickups',
+      dropoff: 'Nairobi Pickups',
+      itinerary: [
+        { day: 'Day 1', title: 'Wednesday / Saturday: Nairobi to Mara', desc: 'Rift valley viewpoint, camp check-in, late afternoon game drive.' },
+        { day: 'Day 2', title: 'All Day Mara Wildlife Encounter', desc: 'Full day in search of big cats, hippos, and migratory herds.' },
+        { day: 'Day 3', title: 'Mara to Lake Nakuru', desc: 'Morning journey to Lake Nakuru for afternoon rhino tracking.' },
+        { day: 'Day 4', title: 'Morning Drive & Dropoff', desc: 'Morning lake tour and return journey to Nairobi.' }
+      ],
+      inclusions: ['Transport with open roof hatch', '3 Nights accommodation', 'All meals', 'Guide services'],
+      exclusions: ['Park fees', 'Gratuities']
+    },
+    {
+      id: 'scheduled-tsavo-2d',
+      title: 'DAILY SCHEDULED DEPARTURE: 2-DAY TSAVO EAST WILDERNESS QUICK ESCAPE',
+      shortTitle: 'Daily 2-Day Tsavo East Escape',
+      subtitle: 'Daily departures from Nairobi or Mombasa to experience the legendary red elephants and Aruba Dam.',
+      badge: 'DAILY DEPARTURE',
+      category: 'Short Safari',
+      days: 2,
+      nights: 1,
+      type: 'Quick Escape',
+      image: '/assets/reference_crops/ref_dest_tsavo.jpg',
+      fallbackImage: '/assets/tsavo.jpg',
+      priceKES: 28000,
+      priceUSD: 220,
+      groupType: 'Daily Departures from Nairobi or Coast',
+      pickup: 'Nairobi / Mombasa / Diani',
+      dropoff: 'Nairobi / Mombasa / Diani',
+      itinerary: [
+        { day: 'Day 1', title: 'Morning Pickup & Tsavo Game Drive', desc: 'Early transfer to Tsavo East. Afternoon game drive around Aruba Dam tracking red elephants and lions.' },
+        { day: 'Day 2', title: 'Dawn Drive & Return Journey', desc: 'Early morning game drive, breakfast, and return transfer to your destination.' }
+      ],
+      inclusions: ['Safari cruiser transport', '1 Night lodge full board', 'Game drives', 'Guide'],
+      exclusions: ['Park fees', 'Tips']
+    }
+  ]
+};
+
+// Flattened packagesData for backwards compatibility with existing modals & search
 export const packagesData = [
+  ...tabbedPackagesData.featured,
+  ...tabbedPackagesData.bestSelling,
+  ...tabbedPackagesData.scheduledSafaris
+];
+
+// USER REAL PHOTOS DATA: Authentic photos from assets/Real photos
+export const realPhotosData = [
   {
-    id: 'mara-3day',
-    title: '3-Day Maasai Mara Safari',
-    subtitle: 'The quintessential African wildlife adventure in Kenya\'s world-famous reserve.',
-    badge: 'BEST SELLER',
-    category: 'Wildlife Safaris',
-    days: 3,
-    nights: 2,
-    type: 'Wildlife',
-    image: '/assets/pkg_mara.jpg',
-    hiresImage: '/assets/pkg_mara.jpg',
-    priceKES: 45000,
-    priceUSD: 350,
-    groupType: 'Daily Join-In or Private 4x4',
-    pickup: 'Nairobi Hotel / JKIA Airport',
-    dropoff: 'Nairobi Hotel / JKIA Airport',
-    itinerary: [
-      {
-        day: 'Day 1',
-        title: 'Nairobi to Maasai Mara & Afternoon Game Drive',
-        desc: 'Depart Nairobi early in the morning heading through the Great Rift Valley with a brief scenic viewpoint stop. Arrive at Maasai Mara in time for lunch and camp check-in. In the late afternoon, set off on your first exhilarating game drive searching for the Big Five. Return to camp for dinner around the bonfire.'
-      },
-      {
-        day: 'Day 2',
-        title: 'Full Day Game Drive in Maasai Mara & Mara River',
-        desc: 'Rise early with breakfast or packed breakfast boxes for a full day traversing the vast plains. Seek out lion prides, cheetahs on termite mounds, leopards in acacia branches, and elephants. Head to the Mara River where hippos and giant Nile crocodiles reside. Enjoy an unforgettable picnic lunch in the wilderness before evening return.'
-      },
-      {
-        day: 'Day 3',
-        title: 'Sunrise Game Drive / Maasai Village & Return to Nairobi',
-        desc: 'Optional early sunrise game drive or visit an authentic Maasai cultural village to experience traditional dances and customs. Enjoy breakfast, check out, and journey back to Nairobi with scenic Rift Valley views, arriving late afternoon for drop-off.'
-      }
-    ],
-    inclusions: [
-      'Transport in customized 4x4 Safari Land Cruiser with pop-up roof',
-      '2 Nights accommodation in selected tented camp or luxury lodge',
-      'All meals on safari (Breakfast, Lunch, Dinner)',
-      'Services of a professional English/German-speaking KPSGA certified guide',
-      'Unlimited game drives as per itinerary',
-      'Complimentary bottled mineral water throughout the safari',
-      'Pick-up and drop-off from your Nairobi hotel or airport'
-    ],
-    exclusions: [
-      'Maasai Mara Park Entry Fees ($100-$200 per adult per day based on season)',
-      'Optional Maasai Village visit ($20-$30 per person)',
-      'Optional Sunrise Hot Air Balloon Safari ($450 per person)',
-      'Gratuities for driver-guide & lodge staff',
-      'Personal travel insurance & drinks at camp'
-    ],
-    accommodations: [
-      { tier: 'Budget Tented Camp', name: 'Miti Mingi / Rhino Tented Camp', priceNote: 'Included in base price' },
-      { tier: 'Mid-Range Camp', name: 'Mara Sopa Lodge / Zebra Plains Mara', priceNote: '+$90 / KES 12,000 per night' },
-      { tier: 'Luxury Lodge', name: 'Ashnil Mara Camp / Sarova Mara Game Camp', priceNote: '+$210 / KES 27,000 per night' }
-    ]
+    id: 'bush-breakfast',
+    title: 'Bush Breakfast on Cruiser Bonnet',
+    subtitle: 'Maasai Mara Savannah Picnic',
+    image: '/assets/real_breakfast_bush.jpg',
+    description: 'Chris and smiling travelers sharing morning picnic boxes and fresh coffee right on the hood of our 4x4 cruiser in the heart of Maasai Mara.',
+    location: 'Maasai Mara National Reserve',
+    guide: 'Chris "Black Santa"',
+    tag: 'Savannah Picnic'
   },
   {
-    id: 'amboseli-4day',
-    title: '4-Day Amboseli Safari',
-    subtitle: 'Up-close giant elephant herds framed by the majestic Mount Kilimanjaro.',
-    badge: 'POPULAR',
-    category: 'Wildlife Safaris',
-    days: 4,
-    nights: 3,
-    type: 'Wildlife',
-    image: '/assets/pkg_amboseli.jpg',
-    hiresImage: '/assets/pkg_amboseli.jpg',
-    priceKES: 52000,
-    priceUSD: 400,
-    groupType: 'Private 4x4 or Small Group',
-    pickup: 'Nairobi / Diani / Mombasa',
-    dropoff: 'Nairobi / Diani / Mombasa',
-    itinerary: [
-      {
-        day: 'Day 1',
-        title: 'Nairobi to Amboseli National Park',
-        desc: 'Morning departure from Nairobi driving through the scenic Athi Plains. Arrive at Amboseli with clear views of Mt Kilimanjaro. Check in, hot lunch, and rest. Afternoon game drive capturing elephant herds against the snow peak.'
-      },
-      {
-        day: 'Day 2',
-        title: 'Full Day Exploring Amboseli & Observation Hill',
-        desc: 'Spend the full day tracking large elephant tuskers, cheetahs, zebras, and giraffes. Ascend Observation Hill for a panoramic view of the vast swamps filled with bathing hippos and pelicans. Bush picnic lunch and sundowner game drive.'
-      },
-      {
-        day: 'Day 3',
-        title: 'Morning & Afternoon Game Drives & Cultural Experience',
-        desc: 'Early morning game drive when Kilimanjaro skies are clearest for photography. Midday relaxation at lodge pool. Afternoon visit to local Maasai community and evening game drive.'
-      },
-      {
-        day: 'Day 4',
-        title: 'Final Morning Game Drive & Return Journey',
-        desc: 'Dawn game drive followed by hearty breakfast. Check out and embark on your return transfer to Nairobi or onward to the coast.'
-      }
-    ],
-    inclusions: [
-      'Transport in custom 4x4 Safari Land Cruiser with pop-up roof',
-      '3 Nights accommodation in full-board safari lodge/camp',
-      'All meals (3 Breakfasts, 4 Lunches, 3 Dinners)',
-      'Expert certified Kenyan naturalist guide',
-      'Bottled drinking water in safari vehicle',
-      'Hotel/Airport transfers'
-    ],
-    exclusions: [
-      'Amboseli National Park entry fees ($100 per adult per day)',
-      'Tips & porterage',
-      'Beverages (alcoholic & soft drinks)',
-      'Personal items & medical insurance'
-    ],
-    accommodations: [
-      { tier: 'Mid-Range Tented', name: 'Kibo Safari Camp / AA Amboseli', priceNote: 'Included in base price' },
-      { tier: 'Luxury Safari Lodge', name: 'Amboseli Serena Safari Lodge / Ol Tukai Lodge', priceNote: '+$140 / KES 18,000 per night' }
-    ]
+    id: 'group-celebration',
+    title: 'Pure Celebration in the Wild',
+    subtitle: 'Hands Up Under African Skies',
+    image: '/assets/real_group_celebration.jpg',
+    description: 'Unforgettable group camaraderie after an exhilarating morning game drive spotting four lions and a cheetah family.',
+    location: 'Great Rift Valley Plains',
+    guide: 'Chris "Black Santa"',
+    tag: 'Big Five Joy'
   },
   {
-    id: 'nakuru-naivasha-3day',
-    title: '3-Day Lake Nakuru & Naivasha',
-    subtitle: 'Rift Valley birding, rhino sanctuary tracking, and walking safari at Crescent Island.',
-    badge: 'GREAT VALUE',
-    category: 'Wildlife Safaris',
-    days: 3,
-    nights: 2,
-    type: 'Wildlife',
-    image: '/assets/pkg_nakuru.jpg',
-    hiresImage: '/assets/pkg_nakuru.jpg',
-    priceKES: 38000,
-    priceUSD: 295,
-    groupType: 'Daily Join-In or Private Tour',
-    pickup: 'Nairobi Hotel / JKIA Airport',
-    dropoff: 'Nairobi Hotel / JKIA Airport',
-    itinerary: [
-      {
-        day: 'Day 1',
-        title: 'Nairobi to Lake Nakuru National Park',
-        desc: 'Drive northwest into the Great Rift Valley. Enter Lake Nakuru National Park for a game drive en route to the lodge. Spot rhinos, Rothschild giraffes, and flamingo flocks around the lake shores.'
-      },
-      {
-        day: 'Day 2',
-        title: 'Lake Nakuru to Lake Naivasha & Boat Safari',
-        desc: 'Morning game drive in Nakuru, then drive south to freshwater Lake Naivasha. Afternoon boat safari navigating past pods of hippos to Crescent Island Sanctuary for a unique walking safari alongside giraffes and zebras.'
-      },
-      {
-        day: 'Day 3',
-        title: 'Hell\'s Gate National Park & Return to Nairobi',
-        desc: 'Visit Hell\'s Gate National Park where you can cycle past wild buffalo and warthogs, or hike the spectacular gorge with a local guide. Return to Nairobi by late afternoon.'
-      }
-    ],
-    inclusions: [
-      'Round-trip transport in 4x4 safari cruiser',
-      '2 Nights accommodation in Rift Valley lodges',
-      'All meals on safari',
-      'Naivasha Boat Safari experience',
-      'Crescent Island walking guide',
-      'Professional driver-guide'
-    ],
-    exclusions: [
-      'Park admission fees (Nakuru & Hell\'s Gate)',
-      'Bicycle rental at Hell\'s Gate ($10)',
-      'Tips and gratuities',
-      'Personal expenses'
-    ],
-    accommodations: [
-      { tier: 'Standard Lodge', name: 'Lake Nakuru Lodge / Fish Eagle Naivasha', priceNote: 'Included' },
-      { tier: 'Luxury Resort', name: 'Sarova Lion Hill / Enashipai Resort & Spa', priceNote: '+$110 / KES 14,000 per night' }
-    ]
+    id: 'sunrise-van',
+    title: 'Golden Hour Pop-Up Roof Tour',
+    subtitle: 'Sunrise Game Drive with Family',
+    image: '/assets/real_sunrise_van.jpg',
+    description: 'Early morning dawn patrol with travelers enjoying unobstructed 360-degree photography views through our customized open roof.',
+    location: 'Amboseli National Park',
+    guide: 'Chris "Black Santa"',
+    tag: 'Sunrise Tour'
   },
   {
-    id: 'safari-beach-5day',
-    title: '5-Day Safari & Beach Combo',
-    subtitle: 'The best of both worlds: Big Five safari in Tsavo/Amboseli followed by tropical Diani Beach.',
-    badge: 'TOP COMBO',
-    category: 'Safari & Beach',
-    days: 5,
-    nights: 4,
-    type: 'Wildlife & Beach',
-    image: '/assets/pkg_beach.jpg',
-    hiresImage: '/assets/pkg_beach.jpg',
-    priceKES: 85000,
-    priceUSD: 660,
-    groupType: 'Private Experience',
-    pickup: 'Nairobi or Mombasa',
-    dropoff: 'Diani Beach / Ukunda Airport',
-    itinerary: [
-      {
-        day: 'Day 1',
-        title: 'Nairobi to Tsavo West National Park',
-        desc: 'Journey south to Tsavo West. Visit Mzima Springs where submerged hippos and fish can be viewed through underwater glass chambers. Afternoon game drive in the rhino sanctuary.'
-      },
-      {
-        day: 'Day 2',
-        title: 'Tsavo West to Tsavo East National Park',
-        desc: 'Morning drive to Tsavo East, home to the famous red elephants and the Yatta Plateau. Track lions, leopards, and herds of buffalo across the golden plains.'
-      },
-      {
-        day: 'Day 3',
-        title: 'Tsavo East to Diani Beach Resort',
-        desc: 'Early morning game drive. Breakfast, check out and drive towards the South Coast. Arrive in Diani Beach in the afternoon. Check into your beach resort and unwind on the white sands.'
-      },
-      {
-        day: 'Day 4',
-        title: 'Relaxation & Coral Reef Dhow Cruise',
-        desc: 'Enjoy a leisurely beach day. Optional traditional dhow boat excursion to Kisite-Mpunguti Marine Park for dolphin spotting, snorkeling, and fresh seafood lunch.'
-      },
-      {
-        day: 'Day 5',
-        title: 'Diani Beach Leisure & Airport Transfer',
-        desc: 'Morning beach walks, swim in the turquoise Indian Ocean. Transfer to Ukunda Airstrip or Mombasa SGR Station / Airport for your onward journey.'
-      }
-    ],
-    inclusions: [
-      '4x4 Land Cruiser safari with dedicated guide for 3 days',
-      '2 Nights Safari Lodge (Full Board) + 2 Nights Diani Beach Resort (Half Board)',
-      'Inter-park transport and beach transfer',
-      'Unlimited safari game drives',
-      'Bottled drinking water throughout safari'
-    ],
-    exclusions: [
-      'Park fees for Tsavo West and East',
-      'Marine park dhow boat trip (optional $85)',
-      'Water sports & personal spa treatments',
-      'Gratuities'
-    ],
-    accommodations: [
-      { tier: 'Comfort Tier', name: 'Ngulia Lodge + Diani Sea Resort', priceNote: 'Included' },
-      { tier: 'Luxury Tier', name: 'Kilaguni Serena + The Sands at Nomad Diani', priceNote: '+$180 / KES 23,000 per night' }
-    ]
+    id: 'chris-tactical-group',
+    title: 'Wilderness Expedition with Guide Chris',
+    subtitle: 'On-the-Ground Wildlife Tracking',
+    image: '/assets/real_chris_tactical_group.jpg',
+    description: 'Chris in the field with international travelers, sharing authentic Kenyan bush lore and pointing out hidden predator tracks.',
+    location: 'Maasai Mara Triangle',
+    guide: 'Chris SafariDoctor',
+    tag: 'Expert Guide'
+  }
+];
+
+// LATEST NEWS & SAFARI BLOG (from Reference Website Screenshot 4)
+export const newsArticlesData = [
+  {
+    id: 'news-elewana-bushplane',
+    category: 'UNCATEGORIZED',
+    badge: 'Luxury Safaris',
+    title: 'ELEWANA SAND RIVER MARA FLYING HONEYMOON PACKAGE',
+    image: '/assets/reference_crops/ref_news_bushplane.jpg',
+    fallbackImage: '/assets/safari_camp.jpg',
+    date: 'MAY 20, 2021',
+    author: 'Chris SafariDoctor',
+    comments: 0,
+    summary: 'Thousands of visitors come to the Mara every year to enjoy some of the most authentic safari experiences in Africa. Here are a few reasons why we love a Masai Mara safari: PRIVATE LOCATION The camp is located in a secluded corner along the Sand River, offering intimate wildlife encounters and luxury fly-in convenience...',
+    readTime: '4 min read'
   },
   {
-    id: 'classic-kenya-7day',
-    title: '7-Day Classic Kenya Big Five Expedition',
-    subtitle: 'Nairobi, Amboseli, Lake Naivasha, Lake Nakuru and Maasai Mara comprehensive loop.',
-    badge: 'ULTIMATE KENYA',
-    category: 'Wildlife Safaris',
-    days: 7,
-    nights: 6,
-    type: 'Wildlife',
-    image: '/assets/mara_lion.jpg',
-    hiresImage: '/assets/hero_elephants_kili.jpg',
-    priceKES: 135000,
-    priceUSD: 1050,
-    groupType: 'Small Group or Private 4x4',
-    pickup: 'Nairobi Hotel / JKIA Airport',
-    dropoff: 'Nairobi Hotel / JKIA Airport',
-    itinerary: [
-      { day: 'Day 1', title: 'Nairobi to Amboseli National Park', desc: 'Arrive and afternoon game drive under Kilimanjaro.' },
-      { day: 'Day 2', title: 'Full Day Amboseli Wildlife Spectacle', desc: 'All day game viewing and Observation Hill panorama.' },
-      { day: 'Day 3', title: 'Amboseli to Lake Naivasha', desc: 'Rift Valley descent, afternoon boat cruise and Crescent Island walk.' },
-      { day: 'Day 4', title: 'Lake Nakuru National Park Day Excursion', desc: 'Sanctuary for rhinos and birdlife, Makalia falls.' },
-      { day: 'Day 5', title: 'Rift Valley to Maasai Mara National Reserve', desc: 'Afternoon game drive in the premier Mara ecosystem.' },
-      { day: 'Day 6', title: 'Full Day Maasai Mara Big Cat Tracking', desc: 'Vast Mara plains, river crossing points, picnic lunch.' },
-      { day: 'Day 7', title: 'Sunrise Mara Drive & Return to Nairobi', desc: 'Breakfast, morning departure back to Nairobi.' }
-    ],
-    inclusions: [
-      '6 Nights accommodation in premium safari lodges/tents',
-      'Exclusive 4x4 Safari Land Cruiser with pop-up roof',
-      'All meals on safari (Full Board)',
-      'Lake Naivasha boat safari & Crescent Island walk',
-      'Professional silver-rated KPSGA guide',
-      'All road taxes and hotel pickups'
-    ],
-    exclusions: [
-      'Park admission fees',
-      'Hot air balloon flight',
-      'Tips and personal items'
-    ],
-    accommodations: [
-      { tier: 'Mid-Range Tented', name: 'Curated 4-star Safari Camps', priceNote: 'Included' },
-      { tier: 'Luxury Lodge Collection', name: 'Serena & Sopa Lodge Portfolio', priceNote: '+$350 total' }
-    ]
+    id: 'news-amboseli-elephants',
+    category: 'ADVENTURES',
+    badge: 'Destination Guide',
+    title: 'Amboseli National Park',
+    image: '/assets/reference_crops/ref_news_amboseli.jpg',
+    fallbackImage: '/assets/hero_elephants_kili.jpg',
+    date: 'FEBRUARY 15, 2021',
+    author: 'Chris SafariDoctor',
+    comments: 0,
+    summary: 'The #amboselinationalpark is indeed one of the extraordinary wildlife destinations in Kenya with beautiful views, a chance to see Mt. Kilimanjaro in Tanzania, large herds of elephants and the big cats. Browse our curated selection of Amboseli Tours & Safaris for your next dream holiday...',
+    readTime: '3 min read'
   },
   {
-    id: 'tsavo-east-2day',
-    title: '2-Day Tsavo East Wilderness Quick Escape',
-    subtitle: 'Perfect short break from Nairobi or Mombasa to witness the iconic red dust elephants.',
-    badge: 'WEEKENDER',
-    category: 'Short Safaris',
-    days: 2,
-    nights: 1,
-    type: 'Wildlife',
-    image: '/assets/tsavo.jpg',
-    hiresImage: '/assets/tsavo.jpg',
-    priceKES: 28000,
-    priceUSD: 220,
-    groupType: 'Daily Departures',
-    pickup: 'Nairobi / Mombasa / Diani',
-    dropoff: 'Nairobi / Mombasa / Diani',
-    itinerary: [
-      { day: 'Day 1', title: 'Transfer to Tsavo East & Afternoon Game Drive', desc: 'Enter through Bachuma or Manyani gate. Afternoon game drive tracking red elephants, lions, and gazelles around Aruba Dam.' },
-      { day: 'Day 2', title: 'Dawn Game Drive & Return Journey', desc: 'Early morning game drive when predators are active. Breakfast, check out, and scenic drive back to destination.' }
-    ],
-    inclusions: [
-      'Transport in 4x4 safari cruiser',
-      '1 Night lodge accommodation full board',
-      'Morning and afternoon game drives',
-      'Guide services and bottled water'
-    ],
-    exclusions: ['Park entrance fees', 'Tips and drinks'],
-    accommodations: [
-      { tier: 'Standard Safari Lodge', name: 'Voi Wildlife Lodge / Ashnil Aruba', priceNote: 'Included' }
-    ]
+    id: 'news-nairobi-daytours',
+    category: 'ADVENTURES',
+    badge: 'Day Excursions',
+    title: 'Fun Filled Day Tours',
+    image: '/assets/reference_crops/ref_news_giraffe_city.jpg',
+    fallbackImage: '/assets/nakuru_rhinos.jpg',
+    date: 'FEBRUARY 15, 2021',
+    author: 'Chris SafariDoctor',
+    comments: 0,
+    summary: 'Don\'t let yourself and family get bored by staying indoors all days during this period! Let\'s go out and have a fun filled day tour at a perfect place within Nairobi city, enjoy the sunshine while viewing the wildlife against the city skyline at Nairobi National Park, Giraffe Centre and Elephant Orphanage...',
+    readTime: '5 min read'
+  }
+];
+
+// GOOGLE REVIEWS DATA (from Reference Website Screenshot 5)
+export const googleReviewsData = [
+  {
+    id: 'hal-howens',
+    author: 'HAL HOWENS',
+    date: 'OCTOBER 10, 2024',
+    rating: 5,
+    verified: true,
+    text: 'We were attracted to SafariDoctor as a local company offering an 11-day midrange private safari in Kenya and Tanzania for our family of four for a fraction of the price of international booking agents. Chris arranged every lodge, park entry and transfer flawlessly. Highly recommended!',
+    hasGallery: false
+  },
+  {
+    id: 'safaa-t',
+    author: 'SAFAA T.',
+    date: 'SEPTEMBER 10, 2024',
+    rating: 5,
+    verified: true,
+    text: 'We recently returned from a memorable family adventure in Kenya, and our experience with Chris / SafariDoctor was outstanding. From the moment we touched down in Nairobi to our departure from the bush, every detail was handled with sincere care and warmth.',
+    hasGallery: true,
+    galleryImage: '/assets/reference_crops/ref_review_thumbs_safaa.jpg'
+  },
+  {
+    id: 'olivier-piederriere',
+    author: 'OLIVIER PIEDERRIERE',
+    date: 'SEPTEMBER 10, 2024',
+    rating: 5,
+    verified: true,
+    text: 'Very professional. The 3 landing points Mara Masai, Lake Naivasha and Amboseli near Kilimanjaro was very fantastic. Thank very much to Chris a really professional, reserved, nice and attentive guide who spotted every animal!',
+    hasGallery: true,
+    galleryImage: '/assets/reference_crops/ref_review_thumbs_olivier.jpg'
   }
 ];
 
@@ -407,43 +539,25 @@ export const fleetData = [
       'Heavy-duty off-road suspension & all-terrain mud tires',
       'Full emergency medical first-aid kit on board'
     ]
-  }
-];
-
-export const reviewsData = [
-  {
-    name: 'Sarah & Michael Jensen',
-    country: 'United Kingdom',
-    rating: 5,
-    title: 'Unbelievable 3-day Mara trip with SafariDoctor!',
-    text: 'Chris and our driver-guide Peter made our dream safari unforgettable. We saw a leopard with its kill on day one, and hundreds of thousands of wildebeest crossing the Mara River. The 4x4 Land Cruiser was spotless and comfortable. 10/10 recommendation!',
-    tour: '3-Day Maasai Mara Safari',
-    date: 'September 2026'
   },
   {
-    name: 'Dr. Lucas Bauer',
-    country: 'Germany',
-    rating: 5,
-    title: 'True professionals – best safari experience in Kenya',
-    text: 'We compared Jungle Roar and SafariDoctor before booking, and SafariDoctor provided the exact custom itinerary we wanted. Amboseli elephants right before Mt Kilimanjaro at sunrise was breathtaking. Honest pricing, no hidden costs.',
-    tour: '4-Day Amboseli Safari',
-    date: 'August 2026'
-  },
-  {
-    name: 'Emily & David Zhao',
-    country: 'Canada',
-    rating: 5,
-    title: 'Magical 5-Day Safari & Diani Beach combo',
-    text: 'Having a seamless transition from the dusty red savannah of Tsavo to the crystal turquoise waters of Diani Beach was pure luxury. Chris checked in on us every day via WhatsApp to ensure everything was perfect.',
-    tour: '5-Day Safari & Beach Combo',
-    date: 'July 2026'
+    title: 'Custom Safari Minivan (Budget Tours)',
+    badge: 'Comfortable & Budget-Friendly',
+    image: '/assets/real_sunrise_van.jpg',
+    features: [
+      'Customized pop-up roof for open game viewing',
+      'Comfortable reclining high-back bucket seats',
+      'Air conditioning and charging ports',
+      'Ideal for group joining safaris and city tours',
+      'Experienced certified naturalist driver-guide'
+    ]
   }
 ];
 
 export const faqData = [
   {
     question: 'Do I need a Visa for Kenya (eTA)?',
-    answer: 'Kenya now uses an Electronic Travel Authorization (eTA) system for all foreign visitors (except East African citizens). You should apply online at least 2 weeks prior to travel via the official Kenya eTA portal (etakenya.go.ke). We can assist you with your flight details and accommodation confirmations needed for the application.'
+    answer: 'Kenya uses an Electronic Travel Authorization (eTA) system for all foreign visitors (except East African citizens). You should apply online at least 2 weeks prior to travel via the official Kenya eTA portal (etakenya.go.ke). We provide you with the flight details and accommodation vouchers required for your eTA application.'
   },
   {
     question: 'When is the best time to see the Great Wildebeest Migration?',
@@ -451,25 +565,29 @@ export const faqData = [
   },
   {
     question: 'What is included in SafariDoctor safari packages?',
-    answer: 'All our safari packages include professional 4x4 Land Cruiser transport with pop-up roof, certified KPSGA driver-guide, full-board accommodation (breakfast, lunch, dinner), unlimited game drives, and chilled mineral water. Park entry fees can be prepaid or settled directly depending on your preference.'
+    answer: 'All our safari packages include professional 4x4 Land Cruiser or minivan transport with pop-up roof, certified KPSGA driver-guide (Chris & team), full-board accommodation (breakfast, lunch, dinner), unlimited game drives, and chilled mineral water. Park entry fees can be prepaid or settled directly.'
   },
   {
     question: 'Can I pay in Kenyan Shillings (KES) or US Dollars (USD)?',
-    answer: 'Yes! We accept payments in both KES and USD. We accept major credit cards (Visa, Mastercard), direct international wire transfers, and Kenya\'s M-Pesa mobile money.'
+    answer: 'Yes! We accept payments in both KES and USD. We support Pesapal secure online card payments (Visa, Mastercard, American Express), direct bank wire transfers, and Kenya\'s M-Pesa mobile money.'
   },
   {
     question: 'What should I pack for my Kenya safari?',
-    answer: 'Pack lightweight neutral-colored clothing (khaki, olive, tan), a warm fleece or windbreaker for cool early morning game drives, comfortable walking shoes, high-SPF sunscreen, sunglasses, hat, personal medications, camera with telephoto lens, and binoculars (though we also provide binoculars on board).'
+    answer: 'Pack lightweight neutral-colored clothing (khaki, olive, tan), a warm fleece or windbreaker for cool early morning game drives, comfortable walking shoes, high-SPF sunscreen, sunglasses, hat, personal medications, camera with telephoto lens, and binoculars (we also provide binoculars on board).'
   }
 ];
 
 export const companyContact = {
-  name: 'SafariDoctor',
-  tagline: 'Capture Nature At Its Best',
-  founder: 'Chris SafariDoctor',
-  phone: '+254 712 345 678',
-  whatsapp: '+254712345678',
-  email: 'info@safaridoctor.co.ke',
-  address: 'Nairobi Office: Gateway Park, Mombasa Road, Nairobi, Kenya | Coast Branch: Diani Beach Road, Kwale',
-  openingHours: 'Mon - Sun: 7:00 AM - 10:00 PM EAT (24/7 Safari Assistance)'
+  name: 'SafariDoctor Tours & Safaris',
+  tagline: 'CAPTURE NATURE AT ITS BEST',
+  founder: 'Chris SafariDoctor ("Black Santa")',
+  phone: '+254-712-765132',
+  mobile1: '+254-723-794090',
+  mobile2: '+254-723-441764',
+  whatsapp: '+254723794090',
+  email: 'safaridoctortours@gmail.com',
+  officialEmail: 'info@safaridoctor.com',
+  address: 'P.O. Box 26958-00100 G.P.O, Gateway mall, 4th floor North Airport Road Syokimau. Nairobi, Kenya',
+  toskMemberNo: 'TOSK/MEMBER/NO: 0236',
+  openingHours: 'Mon - Sun: 7:00 AM - 10:00 PM EAT (24/7 Field & Emergency Safari Assistance)'
 };
