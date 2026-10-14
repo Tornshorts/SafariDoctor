@@ -7,7 +7,7 @@ export default function WhatsAppFloating() {
 
   const sendQuickMessage = (msg) => {
     const text = encodeURIComponent(msg || customText || 'Hello Chris! I would like to inquire about a Kenya safari with SafariDoctor.');
-    window.open(`https://wa.me/254723794090?text=${text}`, '_blank');
+    window.open(`https://wa.me/254734392478?text=${text}`, '_blank');
   };
 
   return (

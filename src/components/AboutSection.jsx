@@ -68,20 +68,33 @@ export default function AboutSection() {
           {/* Right Column: Visual Showcase with Real Photo of Chris & Travelers */}
           <div className="lg:col-span-5 relative">
             <div className="relative bg-white rounded-2xl p-4 sm:p-5 shadow-xl border border-[#E8E4DA]">
-              {/* Photo with Chris in tactical gear */}
-              <div className="relative h-72 sm:h-80 rounded-xl overflow-hidden mb-4">
+              {/* Photo with Chris & Happy Travelers */}
+              <div className="relative h-72 sm:h-84 rounded-xl overflow-hidden mb-4">
                 <img
-                  src="/assets/real_chris_tactical_group.jpg"
-                  alt="Chris SafariDoctor with Happy Travelers in Masai Mara"
+                  src="/assets/real_chris_guests_thumbs_up.jpg"
+                  alt="Chris SafariDoctor with Happy Travelers in Maasai Mara"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-xs text-white p-3 rounded-lg">
+                <div className="absolute bottom-3 left-3 right-3 bg-black/80 backdrop-blur-xs text-white p-3.5 rounded-lg border border-white/10">
                   <span className="text-xs font-extrabold uppercase text-[#FFA040] block">
                     FOUNDER & LEAD NATURALIST
                   </span>
                   <span className="text-sm font-bold block mt-0.5">
-                    Chris ("Black Santa") with guests on Masai Mara Game Drive
+                    Chris ("Black Santa") with guests on Maasai Mara Safari
                   </span>
+                </div>
+              </div>
+
+              {/* Inset Badge: Chris Guiding at the Wheel */}
+              <div className="absolute -top-3 -right-3 hidden sm:flex items-center gap-3 bg-white p-2.5 rounded-2xl shadow-xl border border-[#E8E4DA] z-10 max-w-[220px]">
+                <img
+                  src="/assets/real_chris_cockpit_smile.jpg"
+                  alt="Chris at the Wheel"
+                  className="w-12 h-12 rounded-xl object-cover shrink-0 border border-orange-200"
+                />
+                <div className="text-left">
+                  <span className="text-xs font-black text-[#2D190E] block leading-tight">Chris At The Wheel</span>
+                  <span className="text-[11px] text-emerald-600 font-bold block">Direct Founder Care</span>
                 </div>
               </div>
 

@@ -145,7 +145,7 @@ export default function LatestNews() {
 
             <div className="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between">
               <a
-                href={`https://wa.me/254723794090?text=Hello%20Chris,%20I%20read%20the%20article%20"${encodeURIComponent(activeArticle.title)}"%20and%20want%20to%20know%20more.`}
+                href={`https://wa.me/254734392478?text=Hello%20Chris,%20I%20read%20the%20article%20"${encodeURIComponent(activeArticle.title)}"%20and%20want%20to%20know%20more.`}
                 target="_blank"
                 rel="noreferrer"
                 className="bg-[#2D190E] hover:bg-[#FF6700] text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors"

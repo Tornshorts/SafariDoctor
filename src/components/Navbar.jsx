@@ -374,12 +374,12 @@ export default function Navbar({ onOpenSearchModal }) {
             {/* Quick CTAs */}
             <div className="pt-4 flex flex-col gap-3">
               <a
-                href="https://wa.me/254723794090?text=Hello%20Chris,%20I%20would%20like%20to%20inquire%20about%20a%20safari%20trip."
+                href="https://wa.me/254734392478?text=Hello%20Chris,%20I%20would%20like%20to%20inquire%20about%20a%20safari%20trip."
                 target="_blank"
                 rel="noreferrer"
-                className="w-full bg-[#25D366] text-white py-3 rounded-xl font-bold text-center text-sm tracking-wide"
+                className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3 rounded-xl font-bold text-center text-sm tracking-wide transition-colors"
               >
-                Chat on WhatsApp with Chris
+                Chat on WhatsApp (+254 734 392 478)
               </a>
             </div>
 

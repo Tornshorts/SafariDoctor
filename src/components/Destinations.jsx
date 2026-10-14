@@ -98,7 +98,7 @@ export default function Destinations({ onSelectDestination, onOpenDestinationMod
             </div>
           </div>
           <a
-            href="https://wa.me/254723794090?text=Hello%20Chris,%20I%20would%20like%20to%20plan%20a%20multi-park%20safari%20route."
+            href="https://wa.me/254734392478?text=Hello%20Chris,%20I%20would%20like%20to%20plan%20a%20multi-park%20safari%20route."
             target="_blank"
             rel="noreferrer"
             className="shrink-0 bg-[#2D190E] hover:bg-[#FF6700] text-white px-6 py-3 rounded-xl font-bold text-sm sm:text-base transition-all shadow-md text-center"

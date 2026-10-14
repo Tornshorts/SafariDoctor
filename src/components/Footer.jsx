@@ -179,21 +179,21 @@ export default function Footer() {
               {/* Phone numbers */}
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#FFA040] shrink-0 mt-0.5" />
-                <div>
+                <div className="space-y-1">
                   <div>
-                    <span className="font-bold text-white">Office Line: </span>
-                    <a href="tel:+254712765132" className="hover:text-white transition-colors">
-                      +254-712-765132
+                    <span className="font-bold text-white text-xs uppercase tracking-wider block text-gray-400">Office Lines:</span>
+                    <a href="tel:+254734392478" className="hover:text-[#FFA040] transition-colors block font-semibold text-white">
+                      +254 734 392 478
                     </a>
                   </div>
                   <div>
-                    <span className="font-bold text-white">Phone: </span>
-                    <a href="tel:+254723794090" className="hover:text-white transition-colors">
-                      +254-723-794090
+                    <a href="tel:+254724843457" className="hover:text-[#FFA040] transition-colors block text-gray-300">
+                      +254 724 843 457
                     </a>
-                    <span> / </span>
-                    <a href="tel:+254723441764" className="hover:text-white transition-colors">
-                      +254-723-441764
+                  </div>
+                  <div>
+                    <a href="tel:+254715325418" className="hover:text-[#FFA040] transition-colors block text-gray-300">
+                      +254 715 325 418
                     </a>
                   </div>
                 </div>
@@ -203,16 +203,16 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#FFA040] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-white block">Send us an email:</span>
+                  <span className="font-bold text-white block text-xs uppercase tracking-wider text-gray-400">Send us an email:</span>
                   <a
-                    href="mailto:safaridoctortours@gmail.com"
-                    className="hover:text-white transition-colors block text-[#FFA040]"
+                    href="mailto:Chrissafaridoctortravells@gmail.com"
+                    className="hover:text-white transition-colors block text-[#FFA040] font-semibold break-all"
                   >
-                    safaridoctortours@gmail.com
+                    Chrissafaridoctortravells@gmail.com
                   </a>
                   <a
                     href="mailto:info@safaridoctor.com"
-                    className="hover:text-white transition-colors block text-gray-300"
+                    className="hover:text-white transition-colors block text-gray-400 text-xs mt-0.5"
                   >
                     info@safaridoctor.com
                   </a>

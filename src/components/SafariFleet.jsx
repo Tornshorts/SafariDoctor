@@ -80,7 +80,7 @@ export default function SafariFleet() {
             </div>
 
             <div className="pt-2">
-              <ul className="space-y-2 text-sm sm:text-base font-semibold text-gray-700">
+              <ul className="space-y-2 text-sm sm:text-base font-semibold text-gray-700 mb-6">
                 {vehicle.features.slice(4).map((f, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-emerald-600 shrink-0" />
@@ -88,6 +88,50 @@ export default function SafariFleet() {
                   </li>
                 ))}
               </ul>
+
+              {/* Real action photos of the fleet */}
+              <div className="pt-4 border-t border-gray-100">
+                <span className="text-xs font-black uppercase tracking-wider text-gray-400 block mb-2.5">
+                  See Our Fleet in Action with Travelers:
+                </span>
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="relative rounded-xl overflow-hidden h-20 group">
+                    <img
+                      src="/assets/real_migration_cruiser_line.jpg"
+                      alt="Cruiser with open roof observing migration"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
+                    <span className="absolute bottom-1 left-1.5 text-[10px] font-bold text-white bg-black/60 px-1.5 py-0.5 rounded">
+                      Open Roof
+                    </span>
+                  </div>
+
+                  <div className="relative rounded-xl overflow-hidden h-20 group">
+                    <img
+                      src="/assets/real_chris_cockpit_smile.jpg"
+                      alt="Chris at the Land Cruiser wheel"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
+                    <span className="absolute bottom-1 left-1.5 text-[10px] font-bold text-white bg-black/60 px-1.5 py-0.5 rounded">
+                      Naturalist Driver
+                    </span>
+                  </div>
+
+                  <div className="relative rounded-xl overflow-hidden h-20 group">
+                    <img
+                      src="/assets/real_chris_guests_thumbs_up.jpg"
+                      alt="Happy travelers with the Land Cruiser"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
+                    <span className="absolute bottom-1 left-1.5 text-[10px] font-bold text-white bg-black/60 px-1.5 py-0.5 rounded">
+                      Guests Thumbs Up
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

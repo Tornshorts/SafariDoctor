@@ -69,7 +69,7 @@ export const destinationsData = [
     displayName: 'Lake Nakuru National Park',
     tagline: 'Rhinos, flamingos & birdlife',
     image: '/assets/reference_crops/ref_dest_nakuru.jpg',
-    fallbackImage: '/assets/dest_nakuru.jpg',
+    fallbackImage: '/assets/real_flamingos_in_flight.jpg',
     badge: 'UNESCO Sanctuary',
     description: 'Nestled in the Great Rift Valley, Lake Nakuru is a world-famous sanctuary for endangered white and black rhinos, Rothschild\'s giraffes, and vibrant bird populations.',
     bestTime: 'Year-round, especially dry seasons for birding',
@@ -405,47 +405,169 @@ export const packagesData = [
   ...tabbedPackagesData.scheduledSafaris
 ];
 
-// USER REAL PHOTOS DATA: Authentic photos from assets/Real photos
+// USER REAL PHOTOS & LIVE SAFARI VIDEOS DATA: Authentic moments with Chris & travelers
 export const realPhotosData = [
   {
+    id: 'chris-guests-thumbsup',
+    type: 'image',
+    title: 'Chris With Happy Safari Guests',
+    subtitle: 'Maasai Mara Open Plains',
+    image: '/assets/real_chris_guests_thumbs_up.jpg',
+    description: 'Lead naturalist guide Chris ("Black Santa") giving thumbs up with delighted international safari guests in front of our customized 4x4 Land Cruiser with open pop-up photography roof.',
+    location: 'Maasai Mara National Reserve',
+    guide: 'Chris SafariDoctor',
+    tag: 'Happy Guests',
+    category: 'travelers'
+  },
+  {
+    id: 'video-rhino-nakuru',
+    type: 'video',
+    title: 'Black Rhino Sanctuary Live Dispatch',
+    subtitle: 'Rare Endangered Rhino on the Move',
+    poster: '/assets/poster_black_rhino_nakuru.jpg',
+    image: '/assets/poster_black_rhino_nakuru.jpg',
+    video: '/assets/video_black_rhino_nakuru.mp4',
+    duration: '0:19',
+    description: 'Breathtaking live video dispatch of a majestic endangered black rhino trotting across the open grasslands with an oxpecker bird perched on its ear and zebras grazing in the background.',
+    location: 'Lake Nakuru National Park',
+    guide: 'Chris SafariDoctor',
+    tag: 'Live 4K Video',
+    category: 'video'
+  },
+  {
+    id: 'lioness-carrying-cub',
+    type: 'image',
+    title: 'Rare Sighting: Lioness Carrying Her Cub',
+    subtitle: 'Intimate Maternal Moment in Mara',
+    image: '/assets/real_lioness_carrying_cub.jpg',
+    description: 'An extraordinary, once-in-a-lifetime wildlife encounter captured right alongside our safari vehicle: a protective lioness gently carrying her tiny newborn cub in her jaws.',
+    location: 'Maasai Mara National Reserve',
+    guide: 'Chris SafariDoctor',
+    tag: 'Rare Sighting',
+    category: 'wildlife'
+  },
+  {
+    id: 'video-elephant-crossing',
+    type: 'video',
+    title: 'Giant Tusker Road Crossing Encounter',
+    subtitle: 'Uncut Safari Cruiser Experience',
+    poster: '/assets/poster_elephant_crossing.jpg',
+    image: '/assets/poster_elephant_crossing.jpg',
+    video: '/assets/video_elephant_crossing.mp4',
+    duration: '0:25',
+    description: 'Live field video as a magnificent African elephant tusker strides calmly across the safari track right beside our customized SafariDoctor Land Cruisers with live guide commentary.',
+    location: 'Amboseli National Park',
+    guide: 'Chris SafariDoctor',
+    tag: 'Live 4K Video',
+    category: 'video'
+  },
+  {
+    id: 'wildebeest-migration-line',
+    type: 'image',
+    title: 'The Great Migration From the Pop-Up Roof',
+    subtitle: 'Thousands of Wildebeest on the Horizon',
+    image: '/assets/real_migration_cruiser_line.jpg',
+    description: 'Travelers leaning out of the pop-up roof hatch of our Land Cruiser with telephoto cameras ready as endless columns of the Great Migration trek across the golden Mara plains.',
+    location: 'Maasai Mara Savannah',
+    guide: 'Chris SafariDoctor',
+    tag: 'Great Migration',
+    category: 'travelers'
+  },
+  {
+    id: 'flamingos-flight-nakuru',
+    type: 'image',
+    title: 'Flock of Pink Flamingos in Flight',
+    subtitle: 'Rift Valley Alkaline Lake Spectacle',
+    image: '/assets/real_flamingos_in_flight.jpg',
+    description: 'A breathtaking sight of thousands of pink lesser and greater flamingos taking flight simultaneously across the shallow alkaline waters of the Great Rift Valley.',
+    location: 'Lake Nakuru National Park',
+    guide: 'Chris SafariDoctor',
+    tag: 'Bird Sanctuary',
+    category: 'wildlife'
+  },
+  {
+    id: 'chris-cockpit-guiding',
+    type: 'image',
+    title: 'Chris Guiding at the Cruiser Wheel',
+    subtitle: 'Expert Bush Naturalist in Action',
+    image: '/assets/real_chris_cockpit_smile.jpg',
+    description: 'Founder Chris "Black Santa" smiling at the wheel of our custom safari cruiser, navigating rough wilderness tracks and spotting elusive big cats for eager travelers behind him.',
+    location: 'Maasai Mara Game Reserve',
+    guide: 'Chris "Black Santa"',
+    tag: 'Expert Guide',
+    category: 'travelers'
+  },
+  {
+    id: 'male-lion-relaxing',
+    type: 'image',
+    title: 'King of the Savannah Resting in Lush Grass',
+    subtitle: 'Majestic Big Cat Close Encounter',
+    image: '/assets/real_male_lion_relaxing.jpg',
+    description: 'An intimate close-up of a handsome mature male lion with a full dark-tipped mane, relaxing contentedly with his tongue out in the green savannah grass after morning hunting.',
+    location: 'Maasai Mara National Reserve',
+    guide: 'Chris SafariDoctor',
+    tag: 'Big Five Pride',
+    category: 'wildlife'
+  },
+  {
+    id: 'baboon-mother-baby',
+    type: 'image',
+    title: 'Olive Baboon Mother & Baby on Back',
+    subtitle: 'Rift Valley Escarpment Wildlife',
+    image: '/assets/real_baboon_mother_baby.jpg',
+    description: 'A maternal olive baboon standing on the grassy hillside with her wide-eyed infant clinging safely to her back as our safari group drives along the scenic park tracks.',
+    location: 'Great Rift Valley Escarpment',
+    guide: 'Chris SafariDoctor',
+    tag: 'Wildlife Family',
+    category: 'wildlife'
+  },
+  {
     id: 'bush-breakfast',
+    type: 'image',
     title: 'Bush Breakfast on Cruiser Bonnet',
     subtitle: 'Maasai Mara Savannah Picnic',
     image: '/assets/real_breakfast_bush.jpg',
     description: 'Chris and smiling travelers sharing morning picnic boxes and fresh coffee right on the hood of our 4x4 cruiser in the heart of Maasai Mara.',
     location: 'Maasai Mara National Reserve',
     guide: 'Chris "Black Santa"',
-    tag: 'Savannah Picnic'
+    tag: 'Savannah Picnic',
+    category: 'travelers'
   },
   {
     id: 'group-celebration',
+    type: 'image',
     title: 'Pure Celebration in the Wild',
     subtitle: 'Hands Up Under African Skies',
     image: '/assets/real_group_celebration.jpg',
     description: 'Unforgettable group camaraderie after an exhilarating morning game drive spotting four lions and a cheetah family.',
     location: 'Great Rift Valley Plains',
     guide: 'Chris "Black Santa"',
-    tag: 'Big Five Joy'
+    tag: 'Big Five Joy',
+    category: 'travelers'
   },
   {
     id: 'sunrise-van',
+    type: 'image',
     title: 'Golden Hour Pop-Up Roof Tour',
     subtitle: 'Sunrise Game Drive with Family',
     image: '/assets/real_sunrise_van.jpg',
     description: 'Early morning dawn patrol with travelers enjoying unobstructed 360-degree photography views through our customized open roof.',
     location: 'Amboseli National Park',
     guide: 'Chris "Black Santa"',
-    tag: 'Sunrise Tour'
+    tag: 'Sunrise Tour',
+    category: 'travelers'
   },
   {
     id: 'chris-tactical-group',
+    type: 'image',
     title: 'Wilderness Expedition with Guide Chris',
     subtitle: 'On-the-Ground Wildlife Tracking',
     image: '/assets/real_chris_tactical_group.jpg',
     description: 'Chris in the field with international travelers, sharing authentic Kenyan bush lore and pointing out hidden predator tracks.',
     location: 'Maasai Mara Triangle',
     guide: 'Chris SafariDoctor',
-    tag: 'Expert Guide'
+    tag: 'Expert Guide',
+    category: 'travelers'
   }
 ];
 
@@ -501,7 +623,8 @@ export const googleReviewsData = [
     rating: 5,
     verified: true,
     text: 'We were attracted to SafariDoctor as a local company offering an 11-day midrange private safari in Kenya and Tanzania for our family of four for a fraction of the price of international booking agents. Chris arranged every lodge, park entry and transfer flawlessly. Highly recommended!',
-    hasGallery: false
+    hasGallery: true,
+    galleryImage: '/assets/real_chris_guests_thumbs_up.jpg'
   },
   {
     id: 'safaa-t',
@@ -581,11 +704,20 @@ export const companyContact = {
   name: 'SafariDoctor Tours & Safaris',
   tagline: 'CAPTURE NATURE AT ITS BEST',
   founder: 'Chris SafariDoctor ("Black Santa")',
-  phone: '+254-712-765132',
-  mobile1: '+254-723-794090',
-  mobile2: '+254-723-441764',
-  whatsapp: '+254723794090',
-  email: 'safaridoctortours@gmail.com',
+  phone: '+254734392478',
+  phoneDisplay: '+254 734 392 478',
+  mobile1: '+254724843457',
+  mobile1Display: '+254 724 843 457',
+  mobile2: '+254715325418',
+  mobile2Display: '+254 715 325 418',
+  officeNumbers: [
+    { number: '+254734392478', display: '+254 734 392 478', label: 'Office Line 1 (Main & WhatsApp)' },
+    { number: '+254724843457', display: '+254 724 843 457', label: 'Office Line 2' },
+    { number: '+254715325418', display: '+254 715 325 418', label: 'Office Line 3' }
+  ],
+  whatsapp: '+254734392478',
+  whatsappDisplay: '+254 734 392 478',
+  email: 'Chrissafaridoctortravells@gmail.com',
   officialEmail: 'info@safaridoctor.com',
   address: 'P.O. Box 26958-00100 G.P.O, Gateway mall, 4th floor North Airport Road Syokimau. Nairobi, Kenya',
   toskMemberNo: 'TOSK/MEMBER/NO: 0236',

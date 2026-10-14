@@ -224,7 +224,7 @@ export default function PackageDetailModal({ pkg, onClose, currency, onBookNow }
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <a
-              href={`https://wa.me/254712345678?text=${whatsappMessage}`}
+              href={`https://wa.me/254734392478?text=${whatsappMessage}`}
               target="_blank"
               rel="noreferrer"
               className="flex-1 sm:flex-initial bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-5 rounded-xl text-base flex items-center justify-center gap-2.5 shadow-md shadow-emerald-600/20 transition-colors"

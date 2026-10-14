@@ -35,7 +35,7 @@ export default function BookingSection({ initialPackage, onSuccessBooking }) {
       `• Notes: ${formData.specialNotes || 'None'}\n\n` +
       `Please confirm availability and the best quote.`
     );
-    window.open(`https://wa.me/254712345678?text=${text}`, '_blank');
+    window.open(`https://wa.me/254734392478?text=${text}`, '_blank');
   };
 
   return (
@@ -65,12 +65,12 @@ export default function BookingSection({ initialPackage, onSuccessBooking }) {
                   <h4 className="font-bold text-gray-900 text-base">Need an Instant Response?</h4>
                   <p className="text-sm text-gray-500">Chat with Chris directly on WhatsApp 24/7</p>
                   <a
-                    href="https://wa.me/254712345678"
+                    href="https://wa.me/254734392478"
                     target="_blank"
                     rel="noreferrer"
                     className="text-sm font-bold text-[#FF6700] hover:underline inline-block mt-0.5"
                   >
-                    +254 712 345 678
+                    +254 734 392 478
                   </a>
                 </div>
               </div>
@@ -86,13 +86,21 @@ export default function BookingSection({ initialPackage, onSuccessBooking }) {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#12181F] text-white space-y-2">
+            <div className="p-6 rounded-2xl bg-[#12181F] text-white space-y-3">
               <h4 className="font-black text-base text-[#FFA040] uppercase">SafariDoctor Head Office</h4>
               <p className="text-sm text-gray-300">
-                Gateway Park, Mombasa Road, Nairobi, Kenya
+                Gateway Mall, 4th Floor North, Airport Road Syokimau, Nairobi, Kenya
               </p>
-              <p className="text-sm text-gray-300">
-                Email: <a href="mailto:info@safaridoctor.co.ke" className="text-white underline">info@safaridoctor.co.ke</a>
+              <div className="text-sm text-gray-300 space-y-1 pt-1 border-t border-gray-800">
+                <span className="text-xs uppercase tracking-wider text-gray-400 font-bold block">Office Lines:</span>
+                <div className="flex flex-col gap-0.5 font-medium">
+                  <a href="tel:+254734392478" className="hover:text-[#FFA040] transition-colors">+254 734 392 478 (Main / WhatsApp)</a>
+                  <a href="tel:+254724843457" className="hover:text-[#FFA040] transition-colors">+254 724 843 457</a>
+                  <a href="tel:+254715325418" className="hover:text-[#FFA040] transition-colors">+254 715 325 418</a>
+                </div>
+              </div>
+              <p className="text-sm text-gray-300 pt-1 border-t border-gray-800">
+                Email: <a href="mailto:Chrissafaridoctortravells@gmail.com" className="text-[#FFA040] hover:underline font-semibold break-all">Chrissafaridoctortravells@gmail.com</a>
               </p>
             </div>
           </div>
